@@ -1,0 +1,119 @@
+
+{% extends 'header.html' %}
+
+{% block head %}
+<script src="{{ url_for('static', filename='js/project_operation.js') }}"></script>
+
+
+<script>
+    $( document ).ready(function() {
+
+    $("#cancel-log").click(function(){
+     $('#log_load').removeAttr('src');
+    });
+var frame=document.getElementById("log_load");
+frame.addEventListener("load", ev => {
+    const new_style_element = document.createElement("style");
+    new_style_element.textContent = "body{background-color:rgba(255,255,255,0.8);font-size:14px;overflow:auto;"
+    ev.target.contentDocument.head.appendChild(new_style_element);
+
+
+    $(".get_log_data").click(function(){
+     $("#log-panel").slideDown();
+     $("#generate_log").html("Close log<i class='fas fa-angle-up fa-1x'></i>");
+    var exec_id=$(this).attr('id');
+    var existing_src=$('#log_load').attr('src');
+    if (exec_id!="")
+    {
+     var url = '/stream?project_id='+$("#project_id").val()+'&execution_id='+exec_id;
+     if (existing_src!=url)
+     {
+
+     $('#log_load').attr('src', url);
+     }
+     }
+
+    });
+});
+});
+</script>
+{% endblock %}
+
+{% block body %}
+
+
+    <input type="hidden" id="host_url" value="{{request.host_url}}">
+    <input type="hidden" id="project_id" value="{{ context['project_id'] }}">
+<input type="hidden" id="execution_id" value="{{ context['execution_id'] }}" >
+
+    <button class="btn btn-primary" id="train_model">Train {{ context['project_data']['project_detail']['project_name']}} </button>
+    <button class="btn btn-primary" id="predict_from_model" >Predict {{ context['project_data']['project_detail']['project_name']}} </button>
+   <button class="btn btn-primary" id="generate_log" style="float:right"> View Log<i class='fas fa-angle-down fa-1x'></i><br/></button>
+<a class="btn btn-primary" href="report_detail?project_id={{ context['project_id'] }}" target="_blank">View Log Report</a>
+<a class="btn btn-primary" href="/prediction_output?project_id={{ context['project_id'] }}" target="_blank">View Prediction File</a>
+<a class="btn btn-primary" href="/project_detail?project_id={{ context['project_id'] }}">Refresh &nbsp;<i style='color:white;' class='fas fa-sync fa-1x'></i></a>
+<button id="cancel-log" class="btn btn-primary">Cancel log</button>
+    <div class="row">
+        <div class="col-md-12" id="msg-status">
+        </div>
+    </div>
+    <div  class="row" style="margin-top:50px;">
+        <div class="col-md-12" id="log-panel" >
+                <div  style="width:100%;background-color:#008cba;color:white;padding:10px;">
+                    <div >  {{ context['project_data']['project_detail']['project_name']}} log details.<span style="float:right;padding-right:5px;padding-left:5px;" id="close-log-menu" class="btn-danger" >X</span></div>
+                </div>
+        <iframe id="log_load" style="overflow: auto;padding:10px;height:80%;width:100%" >
+        </iframe>
+        </div>
+    </div>
+
+
+<div class="row">
+                    <div class="col-md-12">
+                        <div class="table-responsive">
+                            <table class="table table-striped table-hover table-condensed">
+                                <thead>
+                                    <tr>
+                                <th>Sr No.</th>
+                                  <th>execution_id</th>
+                                  <th>executed_by</th>
+                                   <th>status_id</th>
+                                    <th>is_running</th>
+                                    <th>start_date</th>
+                                    <th>start_time</th>
+                                        <th>Process type</th>
+                                    <th>message</th>
+                                    <th>is_Failed</th>
+                                        <th>View log</th>
+
+
+
+                                    </tr>
+
+                                </thead>
+
+                                <tbody>
+                                {% for data in context['execution_records'] %}
+                                <tr>
+                                     <td>{{ loop.index }}</td>
+                                  <td>{{ data['execution_id']}}</td>
+                                  <td>{{ data['executed_by']}}</td>
+                                   <td>{{ data['status_id']}}</td>
+                                    <td>{{ data['is_running']}}</td>
+                                    <td>{{ data['start_date']}}</td>
+                                    <td>{{ data['start_time']}}</td>
+                                     <td>{{ data['process_type']}}</td>
+                                    <td>{{ data['message']}}</td>
+                                    <td>{{ data['is_Failed']}}</td>
+                                   <td><button id="{{ data['execution_id']}}" class="btn-primary get_log_data">View Log</button></td>
+                                </tr>
+
+                                {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+</div>
+
+
+{%endblock %}

@@ -1,0 +1,23 @@
+{% extends 'header.html' %}
+
+{% block head %}
+
+
+
+
+<title>Execution List</title>
+{% endblock %}
+
+{% block body %}
+
+
+<h3 style="font-align:center;">{{ context['project_name'] }}</h3>
+   <div class="row" style="height:100%;overflow: auto;">
+        {% for dir_name in context['directory_list'] %}
+         <div class="col-md-2" style="margin-top:30px" >
+<i style="color:rgb(222, 193, 29);padding:20px;" class="fas fa-folder fa-pull-top fa-3x"></i><br />
+<a style="text-decoration:none;color:purple;" href="graph?project_id={{ context['project_id']}}&dir_name={{ dir_name }}"> Graph {{ dir_name[:-1] }}</a>
+</div>
+{% endfor %}
+   </div>
+{% endblock %}

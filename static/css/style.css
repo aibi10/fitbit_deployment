@@ -1,0 +1,145 @@
+.box{box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+-webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+-moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+}
+.reg-error
+{
+color:red;
+}
+
+.alert-success{
+background-color: white;
+color:green;
+border:none;
+}
+
+.alert-danger{
+background-color: white;
+color:red;
+border:none;
+
+}
+.close
+{
+color:black;
+}
+
+.alert-info{
+background-color: white;
+border:none;
+color:#008cba;
+
+}
+
+
+.alert{
+font-weight:bold;
+text-align:center;
+}
+#content-div{
+padding-top:10px;
+}
+.card {
+    max-width: 350px;
+    background-color: #f7f7f7;
+    margin: 0 auto 25px;
+    margin-top: 50px;
+    border-radius: 2px;
+    box-shadow: 0px 2px 2px rgb(0 0 0 / 30%);
+}
+.graph-card
+{
+
+    background-color: #f7f7f7;
+    margin: 0 auto 25px;
+    margin-top: 50px;
+    border-radius: 2px;
+    box-shadow: 0px 2px 2px rgb(0 0 0 / 30%);
+}
+
+
+.modal-backdrop {
+  display: none !important;
+}
+.modal-open .modal {
+   width:auto;
+    margin: 0 auto;
+}
+.file-btn
+{
+background-color:white;
+color:#008cba;
+padding:2px 5px;
+
+}
+.file-btn-delete
+{
+background-color:white;
+color:red;
+padding:2px 5px;
+}
+
+#current_folder_name
+{
+    border: none;
+
+    font-size: 14px;
+    width:80%;
+    color:#008cba;
+    padding: 8px 15px;
+    margin-bottom: 21px;
+    margin-top: 21px;
+    font-weight:bold;
+
+
+
+}
+#directory-label
+{
+ border: none;
+
+
+    font-size: 14px;
+    color:#008cba;
+    padding: 8px 15px;
+    margin-bottom: 21px;
+    margin-top: 21px;
+    font-weight:bold;
+
+}
+
+div.jumbotron.hero-technology{
+  color:#fff;
+  text-align:center;
+  background:url('hero-background-technology.jpg');
+  background-size:cover;
+  background-position:center;
+  padding-top:100px;
+  padding-bottom:100px;
+  margin-top:20px;
+ box-shadow: 0px 2px 2px rgb(0 0 0 / 30%);
+}
+
+h1.hero-title, h2.hero-title, h3.hero-title{
+  text-shadow:0 2px 2px rgba(0,0,0,0.3);
+  color:#fff;
+  font-weight:500;
+}
+
+p.hero-subtitle{
+  max-width:600px;
+  margin:25px auto;
+  padding:10px 15px;
+  background-color:rgba(0,0,0,0.1);
+  color:#fff;
+  text-shadow:0 1px 1px rgba(0,0,0,0.8);
+  font-weight:500;
+}
+
+.log-training-prediction{
+
+
+ -webkit-box-shadow: 9px 9px 5px 0px rgba(52, 48, 45, 0.75);
+-moz-box-shadow:    9px 9px 5px 0px rgba(52, 48, 45, 0.75);
+box-shadow:         9px 9px 5px 0px rgba(52, 48, 45, 0.75);
+      }

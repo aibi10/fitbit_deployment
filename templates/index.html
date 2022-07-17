@@ -1,0 +1,102 @@
+{% extends 'header.html' %}
+
+{% block head %}
+
+
+
+
+<title>Index</title>
+<style>
+    .thumbnail
+    {
+    border:none
+    }
+    div.jumbotron.machine-learning {
+    color: #fff;
+    text-align: center;
+    background: url(https://www.ie.edu/exponential-learning/blog/wp-content/uploads/2018/01/MachineLearninginMarketing-1621x1000.jpg);
+    background-size: cover;
+    background-position: center;
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+.thumbnail:hover
+{
+box-shadow: -2px 1px 21px -6px rgba(0,0,0,0.71);
+}
+</style>
+{% endblock %}
+
+{% block body %}
+
+     <div class="row">
+        <div class="col-md-12">
+            <div class="jumbotron machine-learning">
+                <h1 class="hero-title">Machine Learning</h1>
+                <p class="hero-subtitle" style="color:white;background-color:rgba(9, 40, 87,0.9);">Machine learning is the study of computer algorithms that improve automatically through experience and by the use of data. It is seen as a part of artificial intelligence.</p>
+                <p><a class="btn btn-primary btn-lg hero-button" role="button" href="#">Learn more</a></p>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-2">
+            <div class="thumbnail"><img src="data:image/png;base64,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" width="100%" height="250">
+                <div class="caption">
+                    <h3>Google Cloud Storage</h3>
+                    <p>Google Cloud Storage is a RESTful online file storage web service for storing and accessing data on Google Cloud Platform infrastructure. </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div class="thumbnail"><img src="data:image/png;base64,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" width="100%" height="250">
+                <div class="caption">
+                    <h3>Microsoft Storage Account</h3>
+                    <p>An Azure storage account contains all of your Azure Storage data objects: blobs, files, queues, tables, and disks. </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div class="thumbnail"><img src="https://miro.medium.com/max/640/1*B9CIOrxdROHvtdmouQA1_A.png" width="100%" height="250">
+                <div class="caption">
+                    <h3>Amazon S3 Buckets</h3>
+                    <p>An <strong>Amazon S3 bucket</strong> is a public cloud storage resource available in&nbsp;<strong>Amazon</strong> Web Services' (<strong>AWS</strong>) Simple Storage Service (<strong>S3</strong>), an object storage offering.&nbsp;
+                        </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div class="thumbnail"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAq1BMVEX///8Acsa41DIAcMU+hs3k8foAZsLo8fm20ym71jng7KxRldPW6fbW5Yn4++vQ44EgfMqr0Oz6/PLQ4nm10iH1+eLT5I/G3GTi7bPX5pdxrd7T4vIAasOpxufK3nL9/vlJjc6w0+2+2ETi7bH4+v3y99vm8LzB2VLt9M7r88dvodjA1u0Sgcx+teFepduVvONVm9bc6qPC203F3F3H4POEuuOXxuh+q9u4zulMDW+CAAAEFklEQVR4nO3dWVPiQBSG4YRFAkrYQlhEQHZkXKLO8v9/2ag1M1X0mgRCzsl8741zQdf0A2IVnQ7tOAghhM5YrVqAanpfZ14pRNcdHdAtF6T2nVo4L7sFafKg/E2tVQojLF/fqIRVCPkEIf8g5B+E/IOQfxDyD0L+Qcg/CPkHIf8g5B+Eqq7oNdFPN4Xw6rZGroOrnW8aoeF6Tl7dQigFIbUglIOQWhDKQUgtCOUgpBaEchBSC0JFemF5srrw9GN0800/X/W+NudRu9dv8nTh2cepNtbO131WD1mN25pepKdk1jU1y1r3VXVcUU+38qh9U73fdxTdv0sP7DdaPX2taNfN1Pa3G/V81W/CRK0HgWcqKEWXeRkzK/JK5rztLu85nlS3aROW6su8J3lSfssubOQ9yZOCEEL6QQgh/SCEkH4QQkg/CCGkH4Rqod/X5+egMJVGuOkNTDXXuUh0pRDu6sbFOc97u8z6Y8xSCKe2EcEmH4u6WWgVLoQJL2wDvDAfi6ZhyUL0BsL7qs5M6I+2dVOLgfg7x03ozHbLhqGN9JeRnTBxEEJIPwghpB+EENIPQgjpx0+4D5v6wqG0JMFN2J9a9kR54kJUcqEfvpo+gfb6mQob9j1Rp37G7w8C8+MXWa7OdWOs0wxPFC6tT2IzQ2GKtbatda0tOnr8LDK/hB/CHi2hfcLHW/1mI+uAaYYrrCmE3VZgrC5s1+QndPzdZjnUtBzu18J+VIbCr2l/9efH0T/kh/IUJghCCE8MQghjBCGEJwYhhDGCkKJw1vX1SZNlKNxFzZa+cCjs++InXG/Nq3Ne73i+/IRN24SDvSC0rkRlKUyx1rawDQhGxwPsCzut7ICx1kuFe0gTryZubANKwlNy3uxr3pEwIrHwc+nK+F9kvZnReN2iGZ1jT9RuZLo0Qmor42fcrswkD0II6QchhPSDEEL6QQjhxTPfb7HcS3fbcRNa7plZvE73wghuwhj3PQmbspgJ46zTCJ9Q7cIstzglLsVa26ttQCCue+RaJquJpL7+LIXQfysZ167qLe53yTr9aBTqGy1JAXE/PoQMghBC+kEIIf0ghJB+EEJIPwj5C2N8J/uC93eyF/979e1nI3gjomcjqM+3OMjnRZjPt+iFe1oLS//SnVFSeSJ5RsnHK/J9rKqjO6Lkh6s9uIXiOTPO6ll9jI7rao4Kcua8zgpyDm3NhMuTn8oBK2bnPTm/JtpX5KWqGsDtRCvnTi8sxpldEMpBSC4IpSAkF4RSEJILQikIyQWh1H8uvK3R6/mcQveKYFpgKiGvIOQfhPyDkH8Q8g9C/kHIPwj5ByH/IOQfhPyDkH8aYa3wQsO+Nm5NHtRXITr6vYnMat8pgR/EeaUQXXc0wM/3YrUAUbxOhhBC/PsNav4AMagnrlQAAAAASUVORK5CYII=" width="100%" height="250">
+                <div class="caption">
+                    <h3>Azure Event Hub</h3>
+                    <p>Azure Event Hubs is a big data streaming platform and event ingestion service. It can receive and process millions of events per second. </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div class="thumbnail"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQWGjLiKQeQgLD5edTQVuaiiL1k7JGMXPAwurrHsfaXHN6fN_fEJ04m6PlwNQJnlfw0O3o&usqp=CAU" width="100%" height="250">
+                <div class="caption">
+                    <h3>Azure Stream Analytics</h3>
+                    <p>Microsoft Azure Stream Analytics is a serverless scalable complex event processing engine by Microsoft.. </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div class="thumbnail"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbFshFv6trp19NVpFiq1YA1Hd9B0Ykb1OeMnntWBe_6kr5gdMwFohtgfLjK1eVaSg4QKw&usqp=CAU" width="100%" height="250">
+                <div class="caption">
+                    <h3>MongoDb </h3>
+                    <p>MongoDB is a source-available cross-platform document-oriented database program. Classified as a NoSQL database program. </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="jumbotron" style="box-shadow: -2px 1px 21px -6px rgba(0,0,0,0.71);">
+                <h1>Machine Learning Projects</h1>
+                <p>We have implemented 16 projects for machine learning beginner students using python. All datasets are stored at cloud. We have used GCP, Microsoft and Amazon all cloud storage. We have used azure event hub and stream analytics. Mongo DB
+                    is used for all kind of logging activities.</p>
+                <p><a class="btn btn-primary" role="button" href="/project">Explore all projects </a></p>
+            </div>
+        </div>
+    </div>
+{% endblock %}

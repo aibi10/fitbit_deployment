@@ -1,0 +1,315 @@
+{% extends 'header.html' %}
+
+{% block head %}
+
+
+
+<title>Project Management</title>
+<script src="{{ url_for('static', filename='js/project_manager.js') }}"></script>
+<script>
+    $(document).ready(function(){
+        $("#project-id").change(function(){
+         $("#project-id-msg").html("");
+        });
+
+        $("#storage").change(function(){
+         $("#project-cloud-storage-msg").html("");
+        });
+
+        $("#file-regex-pattern").focus(function(){
+        $("#file-regex-pattern-msg").html("");
+        });
+
+        $("#training-schema-definition").focus(function(){
+        $("#schema-training-msg").html("");
+        });
+
+        $("#prediction-schema-definition").focus(function(){
+        $("#schema-prediction-msg").html("");
+        });
+
+        $("#machine-learning-task").focus(function(){
+        $("#machine-learning-task-msg").html("");
+        });
+
+        $("#save-project-config").click(function(){
+            var project_id = $('#project-id').find(":selected").val();
+            var machine_learning_type = $('#machine-learning-task').find(":selected").val();
+
+
+
+            var cloud_storage=$("#storage").find(":selected").val();
+            var file_name_pattern=$("#file-regex-pattern").val();
+            var schema_definition_json=$("#training-schema-definition").val();
+            var prediction_definition_json=$("#prediction-schema-definition").val();
+
+
+            var should_cancel=false;
+            if (project_id.length<=0)
+            {
+                should_cancel=true;
+                $("#project-id-msg").html("Please select a project");
+            }
+            if (file_name_pattern.length<=0)
+            {
+                should_cancel=true
+                $("#file-regex-pattern-msg").html("Please provide file pattern name regex");
+            }
+            if (schema_definition_json.length<=0)
+            {
+                should_cancel=true
+                $("#schema-training-msg").html("Please provide schema training json data");
+            }
+            if (prediction_definition_json.length<=0)
+            {
+                should_cancel=true
+                $("#schema-prediction-msg").html("Please provide schema prediction json data");
+            }
+            if (cloud_storage.length<=0)
+            {
+                should_cancel=true
+                $("#project-cloud-storage-msg").html("Please select a storage cloud provider");
+            }
+
+            if ( machine_learning_type.length<=0)
+            {
+                should_cancel=true
+                $("#machine-learning-task-msg").html("Please select a type machine learning problem");
+            }
+            if(should_cancel)
+            {
+             $("#msg-status").html("");
+             $("#save-project-config").prop('disabled', false);
+             return false;
+            }
+            $("#save-project-config").prop('disabled', true);
+            $("#msg-status").html("<div class='col-md-1 col-md-offset-5'><i style='color:#008cba;' class='fas fa-sync fa-spin fa-1x'></i></div>");
+                    $.ajax({
+                     url:'/save_project_config',
+                     type: 'POST',
+                     dataType: 'json',
+                     data:  JSON.stringify({
+                                        project_id:project_id,
+                                        machine_learning_type:machine_learning_type,
+                                        file_name_pattern:file_name_pattern,
+                                        cloud_storage:cloud_storage,
+                                        schema_definition_json:schema_definition_json,
+                                        prediction_definition_json:prediction_definition_json
+
+
+                                    }),
+                     contentType: 'application/json',
+
+                     success: function(response)
+                     {
+
+                        if(response['status']==true)
+                        {
+                            $("#msg-status").html("<div class='alert alert-success' role='alert'> "+response['message']+"<a class='close'  onclick=\"$('.alert').fadeOut(1000)\">&times;</a></div>")
+
+                            $('#project-id').val("");
+                            $('#storage').val("");
+                            $('#machine-learning-task').val("");
+                            $("#file-regex-pattern").val("");
+                            $("#training-schema-definition").val("");
+                            $("#prediction-schema-definition").val("");
+                            $("#save-project-config").prop('disabled', false);
+
+
+                        }
+                        else
+                        {
+                            $("#msg-status").html("<div class='alert alert-danger' role='alert'> "+response['message']+"<a class='close'  onclick=\"$('.alert').fadeOut(1000)\">&times;</a></div>")
+                            $("#save-project-config").prop('disabled', false);
+                        }
+                     },
+                     error: function(error)
+                     {
+                         $("#msg-status").html("<div class='alert alert-danger' role='alert'> "+response['message']+"<a class='close'  onclick=\"$('.alert').fadeOut(1000)\">&times;</a></div>")
+                         $("#save-project-config").prop('disabled', false);
+                     }
+               });
+
+        });
+    });
+
+</script>
+<style>
+    .panel-heading
+    {
+    text-decoration:none;
+
+    color:white;
+    font-weight:bold;
+    }
+       .panel-heading:hover
+    {
+    text-decoration:none;
+    cursor: pointer;
+    color:white;
+    font-weight:bold;
+
+    }
+    .panel-heading a{
+    text-decoration:none;
+    }
+
+</style>
+{% endblock %}
+
+{% block body %}
+<div>
+        <ul class="nav nav-tabs">
+            <li class="active"><a href="#tab-1" role="tab" data-toggle="tab">Projects</a></li>
+            <li><a href="#tab-2" role="tab" data-toggle="tab">Add Project</a></li>
+            <li><a href="#tab-3" role="tab" data-toggle="tab">Configure Project</a></li>
+        </ul>
+         <div id="msg-status"></div>
+        <div class="tab-content">
+            <div class="tab-pane active" role="tabpanel" id="tab-1" style="word-wrap: break-word;">
+                            <div class="row" id="project-list">
+                                {% if context['status'] %}
+                                {% for project in context['project_list'] %}
+                                <div class="col-md-3">
+                                    <div class="panel panel-default card" style="height:30%;">
+                                        <div class="panel-heading" style="background-color:#008cba;color:white">
+                                            <h3 class="panel-title"><a  href="/project_detail?project_id={{project['project_id']}}">{{project['project_name']}}</a></h3></div>
+                                        <div class="panel-body"><span>{{project['project_description'][:200]}}</span>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                                {% endif %}
+                </div>
+            </div>
+            <div class="tab-pane" role="tabpanel" id="tab-2">
+
+                <div class="row" id="add-project">
+                        <div class="col-md-6 col-md-push-3 col-sm-4 col-sm-push-0">
+
+
+                                <h2 class="text-center">Add Project Detail</h2>
+                                <div class="form-group">
+                                    <label class="control-label" for="text-input">Project Name<div class="reg-error"  id="project-name-msg"></div></label>
+                                    <input class="form-control" type="text" name="project_name" placeholder="Project name" id="project_name">
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label" for="textarea-input">Textarea<div class="reg-error"  id="project-des-msg"></div></label>
+                                    <textarea class="form-control" name="project_description" placeholder="Project description" id="project_description"></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <button class="btn btn-primary" id="save-project" type="submit">Save Project</button>
+                                </div>
+
+                        </div>
+                </div>
+
+            </div>
+            <div class="tab-pane" role="tabpanel" id="tab-3">
+
+             <div class="row" id="project-configuration">
+                    <div class="col-md-12">
+                        <div class="row register-form">
+                            <div class="col-md-6 col-md-push-3 col-sm-4 col-sm-push-0">
+
+                                    <h1>Project Configuration Detail</h1>
+                                     <div class="form-group">
+
+                                                 <label for="projectlist">Select a project</label>
+                                                 <div class="reg-error"  id="project-id-msg"></div>
+
+
+                                                 <select class="form-control"  name="project" id="project-id" placeholder="select a project" >
+
+
+                                                         {% if context['status'] %}
+
+                                                              <option value="">Choose a project</option>
+                                                              {% for project in context['project_list'] %}
+                                                              <option value="{{ project['project_id'] }}">
+                                                              {{ project['project_name'] }}
+                                                              </option>
+                                                               {% endfor %}
+                                                            {% else %}
+                                                     <option value="">No project available</option>
+
+                                                        {% endif %}
+                                                 </select>
+
+
+                                      </div>
+
+                                    <div class="form-group">
+
+                                            <label class="control-label" for="name-input-field">File name regex pattern</label>
+                                            <div class="reg-error"  id="file-regex-pattern-msg"></div>
+                                              <input class="form-control" id="file-regex-pattern" type="text" placeholder="File name regex pattern">
+                                    </div>
+
+                                    <div class="form-group">
+
+                                            <label class="control-label" for="name-input-field">Training schema definition</label>
+                                            <div class="reg-error"  id="schema-training-msg"></div>
+                                            <textarea class="form-control" name="schema_training_definition" placeholder="Training schema definition in json format" id="training-schema-definition"></textarea>
+                             <!--  <input class="form-control" id="training-file-path" type="textarea" placeholder="Training File Path">
+-->
+                                    </div>
+
+                                    <div class="form-group">
+
+                                            <label class="control-label" for="name-input-field">Prediction schema definition </label>
+                                            <div class="reg-error"  id="schema-prediction-msg"></div>
+
+                                            <!--<input class="form-control" id="prediction-file-path" type="text" placeholder="Prediction File Path">
+-->
+                                           <textarea class="form-control" name="schema_prediction_definition" placeholder="Prediction schema definition in json format" id="prediction-schema-definition"></textarea>
+
+                                    </div>
+                                    <div class="form-group">
+
+                                                 <label for="machine-learning-task">Type of machine learning task</label>
+                                                 <div class="reg-error"  id="machine-learning-task-msg"></div>
+
+                                                <select class="form-control"  name="machine_learning_problem_type" id="machine-learning-task" placeholder="Choose a machine learning problem type">
+
+                                                        <option value="">Choose a machine learning problem type</option>
+                                                        <option value="Classification">Classification</option>
+                                                        <option value="Regression">Regression</option>
+
+
+
+                                                </select>
+
+                                      </div>
+
+                                      <div class="form-group">
+
+                                                 <label for="stoarge">Cloud Storage</label>
+                                                 <div class="reg-error"  id="project-cloud-storage-msg"></div>
+
+                                                <select class="form-control"  name="storage" id="storage" placeholder="select a cloud provider">
+
+                                                        <option value="">Choose a cloud provider</option>
+                                                        <option value="google">Google Cloud Storage</option>
+                                                        <option value="microsoft">Mircosoft Blob Storage</option>
+                                                        <option value="amazon">Amazon S3 Bucket</option>
+
+
+                                                </select>
+
+                                      </div>
+
+                                    <button id="save-project-config" class="btn btn-default submit-button" type="button">Save Project Configuration</button>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

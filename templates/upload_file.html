@@ -1,0 +1,89 @@
+{% from "macros.html" import upload_file with context %}
+{% from "macros.html" import folders with context %}
+{% from "macros.html" import files with context %}
+{% extends 'header.html' %}
+
+{% block head %}
+
+
+{% if "STOP" not in context['process_value']  %}
+<!-- <meta http-equiv="refresh" content="5">-->
+{% endif %}
+
+<title>Upload files</title>
+
+<style>
+    input[type="file"] {
+    display: none;
+}
+
+#search_wrapper{
+    background-color:white;
+    position:relative;
+    border: 1px solid #cccccc;
+    cursor: pointer;
+    width:100%;
+}
+
+#search_field {
+    background-transparent;
+    border-style: none;
+    background-color: #ffffff;
+    box-shadow: inset 0 1px 1px rgb(0 0 0 / 8%);
+    padding-top:5px;
+    padding-bottom:6px;
+    font-size:14px;
+    line-height: 1.4;
+}
+
+#search_button {
+    position:absolute;
+    display: inline;
+
+    text-align: center;
+    top:0;
+    right:0;
+    border:none
+
+}
+</style>
+<script>
+   function alertFilename()
+            {
+                var file_name = document.getElementById('file-upload');
+                document.getElementById('search_field').innerHTML=file_name.value;
+            }
+</script>
+{% endblock %}
+{% block body %}
+
+<div class="row">
+    <div class="col-md-12">
+        <ul class="nav nav-tabs">
+            <li class="active file-btn"><a href="#"> <i class="fab fa-microsoft" ></i> &nbsp;Microsoft Azure Storage</a></li>
+            <li class="file-btn" ><a href="#"><i class="fab fa-amazon" ></i> &nbsp;Amazone Web Services</a></li>
+            <li class="file-btn" ><a href="#"> <i class="fab fa-google" ></i> &nbsp;Google Cloud Platform</a></li>
+        </ul>
+    </div>
+</div>
+<div class="row">
+     {{ modal_create_directory() }}
+    {{ upload_file() }}
+
+
+    <ul class="nav " >
+        <li style="float:left" role="presentation" class="active"><button class="btn file-btn" data-target="#create-dir-modal" data-toggle="modal">  <i class='fa fa-folder'></i> &nbsp;Create Folder</button></li>
+        <li style="float:left" role="presentation"  class="active"><button class="btn file-btn" data-target="#delete-dir-modal" data-toggle="modal">  <i class='fa fa-folder'></i> &nbsp;Remove Folder</button></li>
+        <li style="float:left" role="presentation"  class="active"><button class="btn file-btn" data-target="#upload-file-modal" data-toggle="modal">  <i class='fa fa-upload'></i> &nbsp;Upload File</button></li>
+        <li style="float:left" role="presentation"  class="active"><button class="btn file-btn" data-target="#delete-file-modal" data-toggle="modal">  <i class='fa fa-trash'></i> &nbsp;Remove File</button></li>
+    </ul>
+</div>
+
+<div class="row">
+    {{ folders() }}
+ {{ files() }}
+</div>
+
+
+
+{% endblock %}

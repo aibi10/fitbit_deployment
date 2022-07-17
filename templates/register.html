@@ -1,0 +1,141 @@
+{% extends 'header.html' %}
+
+{% block head %}
+
+	<script>
+	$(function(){
+
+$('#email').focus(function(){
+$('#emailmsg').html("");
+});
+$('#psw').focus(function(){
+$('#pswmsg').html("");
+});
+$('#pswrepeat').focus(function(){
+$('#rpswmsg').html("");
+});
+
+	});
+
+	$(function(){
+$('#email').focus(function(){
+$('#emailmsg').html("");
+});
+	});
+      $(function(){
+
+	$('#email').blur(function(){
+
+		var user = $('#email').val();
+		$.ajax({
+			url: '/validate_email_address',
+			data: $('form').serialize(),
+			type: 'POST',
+			success: function(response){
+
+if(response['status']==true)
+{
+$('#emailmsg').html(" "+response['message']);
+}
+		else
+		{
+		$('#emailmsg').html("");
+		}
+		},
+			error: function(error){
+
+			}
+		});
+	});
+});
+jQuery('.validatedForm').validate({
+            rules : {
+                psw : {
+                    minlength : 5
+                },
+                pswrepeat : {
+                    minlength : 5,
+                    equalTo : "#psw"
+                }
+            }
+            });
+    </script>
+
+
+<script>
+  function ValidateForm()
+  {
+
+ var re = /^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
+  var password=document.getElementById("psw").value;
+  var rpassword=document.getElementById("pswrepeat").value;
+
+  var patt = new RegExp(/^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/);
+  if (password.length>0 || rpassword.length>0)
+  {
+  var res = patt.test(password);
+
+  var status=true;
+    if (res==false)
+    {
+    document.getElementById("pswmsg").innerHTML="Password should contain min 8 letter password, with at least a symbol, upper and lower case letters and a number";
+    status=false;
+    }
+    var res = patt.test(rpassword);
+    if (res==false)
+    {
+    document.getElementById("rpswmsg").innerHTML="Password should contain min 8 letter password, with at least a symbol, upper and lower case letters and a number";
+    status=false;
+    }
+
+
+    if (password!=rpassword)
+    {
+    status=false;
+    document.getElementById("rpswmsg").innerHTML=document.getElementById("pswmsg").innerHTML +"<br>Password and confirmed password did not match";
+
+    }
+}
+var email=document.getElementById("emailmsg").innerHTML;
+
+
+if(email.length>0)
+{
+document.getElementById("emailmsg").innerHTML=email;
+status=false;
+}
+
+  return status;
+
+  }
+</script>
+
+{% endblock %}
+{% block body %}
+    <div class="col-md-5 col-md-offset-3">
+        <form class="validatedForm"  method="POST" action="/register"  onsubmit="return ValidateForm()" >
+            <fieldset>
+                <legend>Registration </legend>
+                <div class="form-group">
+                    <label for="email"><b>Name</b></label>
+                    <input class="form-control" type="text" placeholder="Enter Name" name="user_name" onblur="ValidateForm()" id="name" required>
+                </div>
+                 <div class="form-group">
+                    <label for="email"><b>Email <div class="reg-error" id="emailmsg"></div> </b></label>
+                    <input class="form-control" type="email" placeholder="Enter Email" name="email_address" id="email" onblur="ValidateForm()"  required>
+                 </div>
+                 <div class="form-group">
+                    <label for="psw"><b>Password <div class="reg-error"  id="pswmsg"></div></b></label>
+                    <input class="form-control" type="password" placeholder="Enter Password"  onblur="ValidateForm()" name="password" id="psw" required>
+                 </div>
+                 <div class="form-group">
+                    <label for="psw-repeat"><b>Repeat Password <div class="reg-error"  id="rpswmsg"></div> </b></label>
+                    <input class="form-control" type="password" placeholder="Repeat Password" name="confirm_password" id="pswrepeat" onblur="ValidateForm()" required>
+                 </div>
+                 <button  type="submit"  class="btn btn-primary"  >Register</button>
+            </fieldset>
+        </form>
+    </div>
+
+
+{% endblock %}

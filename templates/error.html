@@ -1,0 +1,32 @@
+{% extends 'header.html' %}
+
+{% block head %}
+
+
+{% if "STOP" not in context['process_value']  %}
+<!-- <meta http-equiv="refresh" content="5">-->
+{% endif %}
+
+<title>Login Page</title>
+{% endblock %}
+
+{% block body %}
+
+
+     <div class="col-md-8 col-md-offset-1 " >
+        Welcome to Machine Learning Application.<br />
+        <i class='fab fa-amazon fa-spin fa-4x'></i> &nbsp; &nbsp; &nbsp;
+        <i class='fab fa-microsoft fa-spin fa-4x'></i>  &nbsp; &nbsp; &nbsp;
+
+        <i class='fab fa-google fa-spin fa-4x'></i><br />
+          <div  style="padding:20px;">
+            <h3>Error Occurred</h3>
+            <p> {{  context['error_message'] }}</p>
+            <p>Go to <a class="btn btn-primary" role="button" href="/">Home  </a></p>
+        </div>
+
+     </div>
+
+
+{% endblock %}
+

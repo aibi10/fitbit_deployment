@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "kubeflow-327710",
+  "private_key_id": "b48adf8a316b5d2da2345a98a89e443b28a30f2a",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCpxQiuL9ggS9AS\nlpMqyKYyAdu6JX1zi7Qo9Z7j3P9YRf2WdSqfEi/5E5vUnRlurHzZeQt2Ip8vLgTC\ne3NtTlhnyOJFnydZpeawYeVV6f5I3jOfZKRCVrTznuArIFkMLmMGYcCZUPHWT9Yu\nxrqgQotYfarX6YzhwGm5Zc/lYSAV2LqMhC3/igyfQ/pD0WLodE6q3UCxRV5p7Kb3\nRCGwMH1bsQgG7OiU2zO3YD6OZgX6jQzuY9WF8cLVdtXJz+KN51Hm+OVPVeawhHW4\njYZ5YB5cqCaQuk6t5E/COb+MAQYecjZQkse9HXVw49GyYJTnEmS5NdBwfptozLHt\nrYrh3IhjAgMBAAECggEAFMlblbr6ndcKhAF3GtRJ3RzzIr33t/pmtbkqmkBzQgNX\n2GCXi7XgtSucdzzrt0GxYQ38GZva8nOSVkm39ANADye+j228QLLFJdrmsffzkEfR\n+aCLUtVmVIn4bUS0V9R6Ksw0lnvIZfLiiQRWJ3czs+23Hwv+mZ7t6FW5+HOa8nGi\nnVzHo2ZRmzzSXyNJgISyn8t9qKx6w9Bn9EslLnZtS5g2M+4QFIdeHSmbhT5yNzRh\nCk6ikbaFKoniWLtKg85YydqTooOFvPWY2+SGqtcn5+hCZ+ANqoXANF9/RnD6yIP9\nbUo/rNxZQ93MUVAkH5HYKsPbN7Zn+tePJSzKRuA8KQKBgQDmtfslIOnzVNQlpwie\ndkc4NUeO9YSzl541X5SYzagdsAT3+BdFSeo3rqx84iUUufqTmHFpWRtBNYkZ41Xb\ncnmshcEzj4V1dYOq7j8QKBd9fqi7cjsbnjMS29C1+xPQUcO4MOsglO5L3tGLTa9v\nWbJSLfIdqm5c7aTjo8l0ep1XlQKBgQC8YPiOhtRuGl3e+LfcEi8zDMejzBUfJs/Z\nemf+PIsgBgQJSj1wa6jU1xoZyG+Jt40d+cS1pa74x8jTb4hgULtf44IbvRjzH7yU\nKtqVWO93u0rsOeMJ2Hc0WJm7hdZnK2XqTuyV8ngx4/Fot6V0zvVKfjRq2KSaR3zG\nQfBFSkCCFwKBgC/Vg2DLVjZRXDsCStMwCswon9GQLhdeVDsUuiaEXVrqZ91R3uFK\n1fj9il3KNY36kW2QqdMB2pjGlMp9TAvXzEps4QXjt/QGjWofQ4wCA/zNCgbzRDYR\nst0yHi/dAtqqWT4TRmzW9CFe7WtIjBs2KbbIN+7Wq1MxIoLgLqCr23uRAoGALKmJ\nBLGu19PkgaLSZJjjG+Vhx9HxCAu5p8Q/t6U/Dv6eIl25p1e/FYdSJt7AoxQjnwHC\nw5Zen5kuYgLFgKBjbF6SUGVK7wmNOkvWuyX00JxVLSCkVYc+6+g9upoGtTsy1JSV\nvw9Xs+xpJfy0e7c9rMWzQ8nNbM6aJJ8piiQKm00CgYEA08XdrN2JxpI0GLCjzmUz\nCf7dKatYo8HDs9xh8RKWcMMyl7NiUVdjaQWryUb8692mLtl91bt0Yolm29sDIUFP\nzf8s5MdVs/YVvBfxvMKfKFMzREA6g6ExUW/sVJDmM9LKyPnfixO0K35CIPbSYuAt\nBSROMUUeHdFicdtX4m+lo9w=\n-----END PRIVATE KEY-----\n",
+  "client_email": "gcp-storage@kubeflow-327710.iam.gserviceaccount.com",
+  "client_id": "104441644592905801810",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/gcp-storage%40kubeflow-327710.iam.gserviceaccount.com"
+}

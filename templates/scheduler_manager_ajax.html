@@ -1,0 +1,690 @@
+{% extends 'header.html' %}
+
+{% block head %}
+
+<style>
+
+</style>
+
+<script>
+function isFutureDate(idate){
+    var today = new Date().getTime(),
+
+  idate = new Date(idate).getTime();
+
+    return (today - idate) < 0;
+}
+
+    function checkDate(){
+    var idate = document.getElementById("date-time"),
+        resultDiv = document.getElementById("date-time-msg"),
+        dateReg = /(0[1-9]|[12][0-9]|3[01])[\/](0[1-9]|1[012])[\/]201[4-9]|20[2-9][0-9]/;
+
+
+    if(!dateReg.test(idate.value)){
+        resultDiv.innerHTML = "Invalid date!";
+        resultDiv.style.color = "red";
+        return;
+    }
+
+    if(!isFutureDate(idate.value)){
+      resultDiv.innerHTML = "Provided date is a past date";
+      return false
+    }
+    else
+    {
+    resultDiv.innerHTML ="";
+    return true
+    }
+
+}
+
+</script>
+
+<title>Scheduler Manager</title>
+<script>
+ $(document).ready(function(){
+
+
+     // clearing validation error of job at specific time
+    $('#job-name').focus(function(){
+    $('#job-name-msg').html("");
+    });
+    $('#project-id').focus(function(){
+    $('#project-id-msg').html("");
+    });
+    $('#date-time').focus(function(){
+    $('#date-time-msg').html("");
+    });
+    $('.operation2').focus(function(){
+    $('#training-1-msg').html("");
+    });
+
+    // clearing validation error of job within a day
+    $('#job1-name').focus(function(){
+    $('#job1-name-msg').html("");
+    });
+    $('#project1-id').focus(function(){
+    $('#project1-id-msg').html("");
+    });
+    $('#time-type').focus(function(){
+    $('#time-type-msg').html("");
+    });
+    $('#time-value').focus(function(){
+    $('#time-value-msg').html("");
+    });
+    $('.operation1').focus(function(){
+    $('#training-2-msg').html("");
+    });
+
+    // clearing validation error of job week day
+    $('#job2-name').focus(function(){
+    $('#job2-name-msg').html("");
+    });
+    $('#project2-id').focus(function(){
+    $('#project2-id-msg').html("");
+    });
+    $('.weekday').change(function(){
+    $('#week-day-msg').html("");
+    });
+    $('.operation').focus(function(){
+    $('#training-3-msg').html("");
+    });
+
+
+      //removing a job
+       $(".cancel_job_on_id").click(function(){
+       $("#msg-status").html("<div class='col-md-1 col-md-offset-5'><i style='color:#008cba;' class='fas fa-sync fa-spin fa-1x'></i></div>");
+
+        var job_id=$(this).attr('id');
+
+        $.ajax({
+                url: '/remove_existing_job',
+                 type: 'POST',
+                dataType: 'json',
+                data:  JSON.stringify({
+                   job_id:job_id
+                }),
+                contentType: 'application/json',
+
+                success: function(response)
+                    {
+                     $("#msg-status").html(response['message']);
+                    },
+                error: function(error)
+                    {
+                     $("#msg-status").html(response['message']);
+                    }
+            });
+
+        });
+
+
+
+     // job at specific time
+     $("#specific_time_button").click(function(){
+      $("#msg-status").html("<div class='col-md-1 col-md-offset-5'><i style='color:#008cba;' class='fas fa-sync fa-spin fa-1x'></i></div>");
+     var job_name=$("#job-name").val();
+     var project_id=$("#project-id").find(":selected").val();
+     var elements_check_box=document.getElementsByClassName('operation2');
+    var action_name="";
+    var is_valid_data=true;
+    for( var i=0;i<elements_check_box.length;i++)
+    {
+    if (elements_check_box.item(i).checked)
+    {
+    action_name=action_name+elements_check_box.item(i).value+",";
+    }
+    }
+
+
+     var date_time=$("#date-time").val();
+     var is_valid_data=true;
+
+     if(job_name==="")
+     {
+     is_valid_data=false;
+     $("#job-name-msg").html("Job name required");
+     }
+     if(action_name==="")
+     {
+     is_valid_data=false;
+     $("#training-1-msg").html("Please select a action");
+     }
+     if(project_id==="")
+     {
+     is_valid_data=false;
+     $("#project-id-msg").html("Project must be selected");
+     }
+     if(!checkDate(date_time))
+     {
+      is_valid_data=false;
+      $("#date-time-msg").html("Provided date is a past date");
+
+     }
+
+     if(is_valid_data)
+     {
+
+     $.ajax({
+                url: '/add_job_at_specific_time',
+                 type: 'POST',
+                dataType: 'json',
+                data:  JSON.stringify({
+                    job_name:job_name,
+                    project_id:project_id,
+                    date_time:date_time,
+                    action_name:action_name
+                }),
+                contentType: 'application/json',
+
+                success: function(response)
+                    {
+                     $("#msg-status").html(response['message']);
+                    },
+                error: function(error)
+                    {
+                     $("#msg-status").html(response['message']);
+                    }
+            });
+
+
+     }
+
+     });
+
+
+     $("#job_on_daily_button").click(function(){
+     $("#msg-status").html("<div class='col-md-1 col-md-offset-5'><i style='color:#008cba;' class='fas fa-sync fa-spin fa-1x'></i></div>");
+
+     var is_reoccurring=$('input[name="is_reoccurring1"]:checked').val();
+     var job_name=$("#job1-name").val();
+     var project_id=$("#project1-id").find(":selected").val();
+     var time_type=$("#time-type").find(":selected").val();
+     var is_valid_data=true;
+     var time_value=$("#time-value").val();
+     var elements_check_box=document.getElementsByClassName('operation1');
+    var action_name="";
+    var is_valid_data=true;
+    for( var i=0;i<elements_check_box.length;i++)
+    {
+    if (elements_check_box.item(i).checked)
+    {
+    action_name=action_name+elements_check_box.item(i).value+",";
+    }
+    }
+     if(job_name==="")
+     {
+     is_valid_data=false;
+     $("#job1-name-msg").html("Job name required");
+     }
+     if(action_name==="")
+     {
+     is_valid_data=false;
+     $("#training-2-msg").html("Choose a action to perform");
+     }
+     if(project_id==="")
+     {
+     is_valid_data=false;
+     $("#project1-id-msg").html("Project must be selected");
+     }
+     if(time_type==="")
+     {
+     is_valid_data=false;
+     $("#time-type-msg").html("Time type must be selected");
+     }
+     else
+     {
+         if(time_type==="hour")
+             {
+             var time_value=parseInt(time_value);
+             if (time_value>23)
+             {
+             is_valid_data=false;
+             $("#time-value-msg").html("Hour must be less than or equal to 23.");
+             }
+             }
+         else
+             {
+             var time_value=parseInt(time_value)
+             if (time_value>59)
+             {
+             is_valid_data=false;
+             $("#time-value-msg").html(time_type+" must be less than or equal to 59.");
+             }
+
+             }
+     }
+
+     if(is_valid_data)
+     {
+
+      $.ajax({
+                url: '/add_job_within_a_day',
+                 type: 'POST',
+                dataType: 'json',
+                data:  JSON.stringify({
+                        is_reoccurring:is_reoccurring,
+                         job_name:job_name,
+                         project_id:project_id,
+                         time_type:time_type,
+                         time_value:time_value,
+                          action_name:action_name
+                }),
+                contentType: 'application/json',
+
+                success: function(response)
+                    {
+                     $("#msg-status").html(response['message']);
+                    },
+                error: function(error)
+                    {
+                     $("#msg-status").html(response['message']);
+                    }
+            });
+
+
+
+
+     }
+     });
+
+     //job on week day
+
+     $("#week_day_job_button").click(function(){
+       $("#msg-status").html("<div class='col-md-1 col-md-offset-5'><i style='color:#008cba;' class='fas fa-sync fa-spin fa-1x'></i></div>");
+        var is_reoccurring=$('input[name="is_reoccurring"]:checked').val();
+        var elements_check_box=document.getElementsByClassName('weekday');
+        var week_day_names="";
+        var is_valid_data=true;
+        for( var i=0;i<elements_check_box.length;i++)
+        {
+        if (elements_check_box.item(i).checked)
+        {
+        week_day_names=week_day_names+elements_check_box.item(i).value+",";
+        }
+        }
+        var job_name=$("#job2-name").val();
+        var project_id=$("#project2-id").find(":selected").val();
+        var elements_check_box=document.getElementsByClassName('operation');
+        var action_name="";
+        var is_valid_data=true;
+        for( var i=0;i<elements_check_box.length;i++)
+        {
+        if (elements_check_box.item(i).checked)
+        {
+        action_name=action_name+elements_check_box.item(i).value+",";
+        }
+        }
+        if(action_name==="")
+        {
+        is_valid_data=false;
+        $("#training-3-msg").html("Please select a action to perform");
+        }
+        if(week_day_names==="")
+        {
+        is_valid_data=false;
+        $("#week-day-msg").html("Please select at least one week day to proceed");
+        }
+        if(job_name==="")
+         {
+         is_valid_data=false;
+         $("#job2-name-msg").html("Job name required");
+         }
+         if(project_id==="")
+         {
+         is_valid_data=false;
+         $("#project2-id-msg").html("Project must be selected");
+         }
+        if (is_valid_data)
+        {
+
+        $.ajax({
+                url: '/add_job_on_week_day',
+                 type: 'POST',
+                dataType: 'json',
+                data:  JSON.stringify({
+                       week_day_names:week_day_names,
+                        job_name:job_name,
+                        project_id:project_id,
+                        is_reoccurring:is_reoccurring,
+                         action_name:action_name
+                }),
+                contentType: 'application/json',
+
+                success: function(response)
+                    {
+                     $("#msg-status").html(response['message']);
+                    },
+                error: function(error)
+                    {
+                     $("#msg-status").html(response['message']);
+                    }
+            });
+
+
+
+
+
+
+        }
+
+     });
+
+
+     });
+
+</script>
+{% endblock %}
+
+{% block body %}
+
+<div class="row">
+     <div class="alert alert-info " role="alert">
+    <div class="col-md-12" id="msg-status">
+    </div>
+     </div>
+</div>
+<div>
+    <input type="hidden" id="host_url" value="{{request.host_url}}">
+        <ul class="nav nav-tabs">
+
+            <li ><a href="#tab-2" role="tab" data-toggle="tab">Schedule Job</a></li>
+             <li ><a href="#tab-1" role="tab" data-toggle="tab">Job Status</a></li>
+              <li ><a href="/scheduler_ajax" >Refresh</a></li>
+
+        </ul>
+        <div class="tab-content">
+            <div class="tab-pane" role="tabpanel" id="tab-1">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="table-responsive">
+                            <table class="table table-striped table-hover table-condensed">
+                                <thead>
+                                    <tr>
+                                <th>Sr No.</th>
+                                  <th>created date</th>
+                                  <th>create_time</th>
+                                   <th>job_name</th>
+                                    <th>job_id</th>
+                                    <th>start time</th>
+                                    <th>project id</th>
+                                    <th>project name</th>
+                                    <th>job_type</th>
+                                    <th>interval</th>
+                                    <th>interval value</th>
+                                    <th>status</th>
+                                    <th>submitted by</th>
+                                        <th>Action</th>
+                                     <th>View Log</th>
+                                     <th>Cancel Job</th>
+
+
+                                    </tr>
+
+                                </thead>
+{% if context['is_job_detail_found']  %}
+                                <tbody>
+                                {% for job_data in context['job_detail'] %}
+                                    <tr>
+                                        <td>{{ loop.index }} </td>
+                                  <td>{{ job_data['created_date']}}</td>
+                                  <td>{{ job_data['create_time']}}</td>
+                                   <td>{{ job_data['job_name']}}</td>
+                                    <td>{{ job_data['job_id']}}</td>
+                                    <td>{{ job_data['start_time']}}</td>
+                                    <td>{{ job_data['project_id']}}</td>
+                                    <td>{{ job_data['project_name']}}</td>
+                                    <td>{{ job_data['job_type']}}</td>
+                                    <td>{{ job_data['interval']}}</td>
+                                    <td>{{ job_data['interval_value']}}</td>
+
+                                        {% if 'successful' in job_data['status'] %}
+                                         <td  class="success" >{{ job_data['status']}}</td>
+                                         {% else %}
+                                        <td>{{ job_data['status']}}</td>
+                                         {% endif %}
+
+
+                                    <td>{{ job_data['submitted_by']}}</td>
+                                        <td>{{ job_data['Action'] }}</td>
+                                        {% if 'running' in  job_data['status']  %}
+                                        <td><a  href="/project_detail?project_id={{ job_data['project_id']}}">View log</a></td>
+                                         {% else %}
+                                           <td><a  href="/project_detail?project_id={{ job_data['project_id']}}">No log available</a></td>
+                                        {% endif %}
+                                          <td>
+                                        {% if 'waiting' in  job_data['status']  %}
+
+                                              <button id="{{ job_data['job_id']}}" class="cancel_job_on_id  btn-primary">Cancel job</button>
+                                              {% else %}
+                                              <button class="btn-default" disabled>Cancel job</button>
+                                        {% endif %}
+                                        </td>
+
+                                    </tr>
+                                {% endfor %}
+                                </tbody>
+                                {% endif %}
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane active" role="tabpanel" id="tab-2">
+                <div class="row>">
+
+
+                    <div class="col-md-9">
+                    <div>
+
+                    <div class="tab-content">
+
+                        <div class="tab-pane active" role="tabpanel" id="inner-tab-1">
+                                <div class="row">
+
+                                    <div class="col-md-6 col-md-offset-3">
+
+                                            <h2 class="text-center">Job at specific time </h2>
+                                            <div class="form-group">
+                                                <label class="control-label" for="text-input">Job Name</label>
+                                                 <div class="reg-error"  id="job-name-msg"></div>
+
+                                                <input class="form-control" type="text" name="job_name" id="job-name" placeholder="Enter Job Name" required>
+                                            </div>
+                                              <div class="form-group">
+
+                                                     <label for="project_list">Select a project</label>
+                                                     <div class="reg-error"  id="project-id-msg"></div>
+
+
+                                                     <select class="form-control"  name="project_id" id="project-id" >
+                                                         <option value="">Choose a project</option>
+                                                       {% for project in  context['project_list'] %}
+                                                         <option value="{{ project['project_id'] }}">{{ project['project_name'] }}</option>
+                                                         {% endfor %}
+                                                     </select>
+
+                                                </div>
+                                            <div class="form-group">
+                                                 <label for="project_list">Select a date time</label>
+                                                 <div class="reg-error"  id="date-time-msg"></div>
+                                                <input class="form-control" id="date-time" onblur="checkDate()"   type="datetime-local" placeholder="Select a date time">
+                                            </div>
+                                                <div class="form-group">
+                                                 <label for="week-day">Select a action to perform</label>
+                                                 <div class="reg-error"  id="training-1-msg"></div>
+                                               <input type="checkbox"  id="training-10"  class="operation2" value="training"/><label>Training</label>
+                                               <input type="checkbox"  id="training-11"  class="operation2" value="prediction"/><label>prediction</label>
+                                             </div>
+
+
+
+
+                                            <div class="form-group">
+                                                <button class="btn btn-primary" id="specific_time_button" type="submit">Submit Job</button>
+                                            </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane" role="tabpanel" id="inner-tab-2">
+                           <div class="row">
+                                    <div class="col-md-6 col-md-offset-3">
+
+                                            <h2 class="text-center">Job within a day </h2>
+                                            <div class="form-group">
+                                                <label class="control-label" for="text-input">Job Name</label>
+                                                 <div class="reg-error"  id="job1-name-msg"></div>
+
+                                                <input class="form-control" type="text" name="job_name" id="job1-name" placeholder="Enter Job Name">
+                                            </div>
+                                              <div class="form-group">
+
+                                                     <label for="project_list">Select a project</label>
+                                                     <div class="reg-error"  id="project1-id-msg"></div>
+
+
+                                                     <select class="form-control"  name="project" id="project1-id" >
+                                                         <option value="">Choose a project</option>
+                                                          {% for project in  context['project_list'] %}
+                                                         <option value="{{ project['project_id'] }}">{{ project['project_name'] }}</option>
+                                                         {% endfor %}
+                                                     </select>
+
+
+                                                </div>
+                                            <div class="form-group">
+                                             <label for="project_list">Choose a time type</label>
+                                                     <div class="reg-error"  id="time-type-msg"></div>
+
+
+                                                <select class="form-control" id="time-type" name="time_type">
+                                                    <option value="">Choose time type</option>
+                                                    <option value="hour">Hour</option>
+                                                    <option value="minute">Minute</option>
+                                                    <option value="second">Second</option>
+                                                </select>
+
+
+
+                                            </div>
+                                        <div>
+                                             <label for="project_list">Time value</label>
+                                              <div class="reg-error"  id="time-value-msg"></div>
+
+
+                                          <input class="form-control"  type="text" id="time-value" name="time_value" placeholder="Enter a time value">
+
+
+                                        </div>
+                                        <div class="form-group">
+                                                 <label for="week-day">Do you want to repeat it?</label>
+                                                <input   type="radio" value="Yes"   name="is_reoccurring1"/>
+                                                <label>Yes</label>
+                                                <input   type="radio" value="No" name="is_reoccurring1" checked/>
+                                                  <label>No</label>
+                                            </div>
+
+                                        <div class="form-group">
+                                                 <label for="week-day">Select a action to perform</label>
+                                                 <div class="reg-error"  id="training-2-msg"></div>
+                                               <input type="checkbox"  id="training-20"  class="operation1" value="training"/><label>Training</label>
+                                               <input type="checkbox"  id="training-21"  class="operation1" value="prediction"/><label>prediction</label>
+                                             </div>
+
+
+                                            <div class="form-group">
+                                                <button id="job_on_daily_button" class="btn btn-primary" type="submit">Submit Job</button>
+                                            </div>
+                                    </div>
+                           </div>
+                        </div>
+                        <div class="tab-pane" role="tabpanel" id="inner-tab-3">
+                            <div class="row">
+                                <div class="col-md-6 col-md-offset-3">
+
+                                        <h2 class="text-center">Job on week day</h2>
+                                       <div class="form-group">
+                                                <label class="control-label" for="text-input">Job Name</label>
+                                                 <div class="reg-error"  id="job2-name-msg"></div>
+
+                                                <input class="form-control" type="text" name="job_name" id="job2-name" placeholder="Enter Job Name">
+                                            </div>
+                                              <div class="form-group">
+
+                                                     <label for="project_list">Select a project</label>
+                                                     <div class="reg-error"  id="project2-id-msg"></div>
+
+
+                                                     <select class="form-control"  name="project" id="project2-id" >
+                                                         <option value="">Choose a project</option>
+                                                          {% for project in  context['project_list'] %}
+                                                         <option value="{{ project['project_id'] }}">{{ project['project_name'] }}</option>
+                                                         {% endfor %}
+                                                     </select>
+
+
+                                                </div>
+                                            <div class="form-group">
+                                                 <label for="week-day">Select a day of week</label>
+                                                 <div class="reg-error"  id="week-day-msg"></div>
+                                               <input type="checkbox"  id="week-day0"  class="weekday" value="sun"/><label>Sunday</label>
+                                                &nbsp;
+                                                <input type="checkbox"  id="week-day1" class="weekday" value="mon"/><label>Monday</label>
+                                                &nbsp;
+                                                <input type="checkbox" id="week-day2" class="weekday" value="tue"/><label>Tuesday</label>
+                                                &nbsp;
+                                                <input type="checkbox" id="week-day3" class="weekday" value="wed"/><label>Wednesday</label>
+                                                &nbsp;
+                                                <input type="checkbox" id="week-day4" class="weekday" value="thu"/><label>Thursday</label>
+                                                &nbsp;
+                                                <input type="checkbox" id="week-day5" class="weekday" value="fri"/><label>Friday</label>
+                                                &nbsp;
+                                                <input type="checkbox" id="week-day6" class="weekday" value="sat"/><label>Saturday</label>
+                                                &nbsp;
+                                            </div>
+                                            <div class="form-group">
+                                                 <label for="week-day">Do you want to repeat on each week</label>
+                                                <input   type="radio" value="Yes" name="is_reoccurring"/>
+                                                <label>Yes</label>
+                                                <input   type="radio" value="No" name="is_reoccurring" checked/>
+                                                  <label>No</label>
+                                            </div>
+
+                                             <div class="form-group">
+                                                 <label for="week-day">Select a action to perform</label>
+                                                 <div class="reg-error"  id="training-3-msg"></div>
+                                               <input type="checkbox"  id="training-30"  class="operation" value="training"/><label>Training</label>
+                                               <input type="checkbox"  id="training-31"  class="operation" value="prediction"/><label>prediction</label>
+                                             </div>
+
+
+
+                                            <div class="form-group">
+                                                <button id="week_day_job_button" class="btn btn-primary" type="submit">Submit Job</button>
+                                            </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                    </div>
+                    <div style="margin-top:100px;" class="col-md-3">
+
+                       <ul class="nav navbar-inverse" >
+                            <li  role="presentation" class="list-group-item active" ><span> <a style="color:black;text-decoration:none" class="inner-tab-style" href="#inner-tab-1" role="tab" data-toggle="tab">Job at specific time</a></span></li>
+                            <li role="presentation" class="list-group-item"><span><a  style="color:black;text-decoration:none" href="#inner-tab-2" role="tab" data-toggle="tab">Job within a day </a></span></li>
+                            <li role="presentation" class="list-group-item"><span><a style="color:black;text-decoration:none" href="#inner-tab-3" role="tab" data-toggle="tab">Job on week day</a></span></li>
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+{% endblock %}

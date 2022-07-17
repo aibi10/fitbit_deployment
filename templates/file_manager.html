@@ -1,0 +1,87 @@
+{% from "macros.html" import upload_file with context %}
+{% from "macros.html" import folders with context %}
+{% from "macros.html" import files with context %}
+{% from "macros.html" import delete_folder with context %}
+{% from "macros.html" import delete_file with context %}
+{% extends 'header.html' %}
+
+{% block head %}
+<script src="{{ url_for('static', filename='js/file_manager.js') }}"></script>
+
+{% if "STOP" not in context['process_value']  %}
+<!-- <meta http-equiv="refresh" content="5">-->
+{% endif %}
+
+<title>file manager Page</title>
+{% endblock %}
+
+{% block body %}
+
+
+
+<div class="row">
+    <div class="col-md-8 col-md-offset-2">
+
+                <ul class="nav nav-pills">
+                    <li role="presentation" id="introduction" ><a class="fab fa-info cloud-provider" href="#">Introduction</a></li>
+                    <li role="presentation" id="microsoft" ><a class="fab fa-microsoft cloud-provider" href="#"> Microsoft Azure Storage</a></li>
+                    <li role="presentation" id="amazon" ><a class="cloud-provider fab fa-amazon" href="#"> Amazone Web Services</a></li>
+                    <li role="presentation" id="google" ><a class="cloud-provider fab fa-google" href="#"> Google Cloud Platform</a></li>
+                </ul>
+
+    </div>
+</div>
+
+<div id="storage-option">
+<div class="row">
+    <div class="col-md-12">
+     <ol class="breadcrumb" id="nav-directory">
+        <li><a><span>Visited directory: </span></a></li>
+
+    </ol>
+    </div>
+    <div class="col-md-11" id="message-file-operation">
+
+
+
+    </div>
+    <div class="col-md-12">
+     {{ modal_create_directory() }}
+    {{ upload_file() }}
+        {{ delete_folder()}}
+        {{ delete_file() }}
+    <ul class="nav nav-tab" >
+        <li style="float:left" role="presentation" class="active"><button class="btn file-btn" data-target="#create-dir-modal" data-toggle="modal">  <i class='fa fa-folder'></i> &nbsp;Create Folder</button></li>
+        <li style="float:left" role="presentation"  class="active"><button class="btn file-btn" data-target="#upload-file-modal" data-toggle="modal">  <i class='fa fa-upload'></i> &nbsp;Upload File</button></li>
+        <li style="float:left" role="presentation"  class="active"><button id="delete-file-folder" class="btn file-btn" >  <i  id="enable-delete-option" class='fa fa-toggle-off'></i> &nbsp;Remove Folder</button></li>
+        <li style="float:left" role="presentation"  class="active"><button id="delete-file-folder-file"  class="btn file-btn" >  <i  id="enable-delete-option-file" class='fa fa-toggle-off'></i> &nbsp;Remove File</button></li>
+        <li style="float:left" role="presentation" class="active"><button class="btn file-btn" id="refresh-folder">  <i class='fa fa-refresh'></i> &nbsp;Refresh</button></li>
+        <li style="float:left" role="presentation" class="active"><button class="btn file-btn-delete" id="delete-button" data-target="#delete-folder-modal" data-toggle="modal">  &nbsp;Delete &nbsp;Folder  <i class='fa fa-trash'></i></button></li>
+        <li style="float:left" role="presentation" class="active"><button class="btn file-btn-delete" id="delete-button-file" data-target="#delete-file-modal" data-toggle="modal">   &nbsp;Delete &nbsp; File  <i class='fa fa-trash'></i> </button></li>
+
+    </ul>
+    </div>
+    <div class="col-md-12">
+
+
+    {{ folders() }}
+    {{ files() }}
+
+    </div>
+
+
+
+</div>
+
+</div>
+
+<div id="storage-intro">
+    <div class="jumbotron hero-technology">
+        <h1 class="hero-title">Cloud Storage</h1>
+        <p class="hero-subtitle">You can manage your file across all cloud platform.GCP, Azure or AWS. Select cloud provide name from top </p>
+
+    </div>
+</div>
+
+
+{% endblock %}

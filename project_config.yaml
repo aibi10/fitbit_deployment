@@ -1,0 +1,43 @@
+root_folder: aibi010
+
+mongodb:
+  is_cloud: 1
+  user_name: aibi
+  password: letsflyveryhigh
+  url: mongodb+srv://{0}:{1}@cluster0.2gn2i.mongodb.net/?retryWrites=true&w=majority
+
+
+cloud_storage:
+  azure_blob_storage:
+    connection_str: DefaultEndpointsProtocol=https;AccountName=aibi;AccountKey=oWl7MKVKjp93oa9qfo3051uQRR1zgusbCR3FBWZziD2UWdacAodHdPXPB0AzbBvjZBggvcw6z7yu+AStafs9LA==;EndpointSuffix=core.windows.net
+  aws_s3_bucket:
+    name: aws_access_key
+    Access Key ID: AKIAXXK3P7MCSNDS6QWG
+    Secret Access Key: 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
+    description: AWS credentials
+
+  gcp: gcp.json
+
+watcher_checkpoint_storage_account_connection_str:
+  connection_str: DefaultEndpointsProtocol=https;AccountName=storageaccountrgai1a757;AccountKey=j4TYtRYwIDyUNL4lKXXIfYgCftrTbJPhPHC8i/j66XSf6s81ruCaQqDnjh5WDMjrqqc4hulvZ8wxcYQb8KfukA==;EndpointSuffix=core.windows.net
+
+azure_input_file_storage_connection_str:
+  connection_str: DefaultEndpointsProtocol=https;AccountName=inputfilestorage;AccountKey=u2jUt3DLgsPiZO8S7kZ1yk4B7FJ6gCtdTeckaige1AXTnyPA1zby1w0n6HUi/2cdOAoo5E1jXrEeofyI6UDtFw==;EndpointSuffix=core.windows.net
+
+event_hub_name_space:
+  connection_str: Endpoint=sb://avnish327030.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=BwK0zozJe+Oz46F5BgpHUtq5zkzqMKCzPdc2kOg2WW8=
+
+
+session:
+  secret-key: ec6935d1-0e2c-4998-b7ed-809e8cb0fcda
+
+user_detail:
+  email_id: isingh.abhishek10@gmail.com
+  role_id: 1 #1 - admin, 2 - viewer
+
+email_config:
+  sender_email_id: isingh.abhishek10@gmail.com
+  passkey: dlmmxhzlyhgwgply
+  receiver_email_id:
+    - abhi.kinnnng@gmail.com
+    - ambikasingh1956@gmail.com

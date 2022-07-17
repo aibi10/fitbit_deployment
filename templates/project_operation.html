@@ -1,0 +1,105 @@
+
+{% extends 'header.html' %}
+
+{% block head %}
+<script src="{{ url_for('static', filename='js/project_operation.js') }}"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js"></script>
+<style>
+
+</style>
+<script>
+         //Client-side Javascript code for handling random numbers
+    $(document).ready(function(){
+    var namespace="/training_model";
+     var project_id=$("#project_id").val();
+    var host_url=$("#host_url").val();
+
+   var training_socket=io.connect(namespace);
+// training model related method
+    $("#train_model_using_socket").click(function(){
+     $("#msg-status").html("<div class='alert alert-info' role='alert'> Request accepted <i style='color:#008cba;' class='fas fa-sync fa-spin fa-1x'></i>  </div>");
+   $("#train_model_using_socket").prop('disabled', true);
+
+
+    //alert("train model button clicked");
+
+    training_socket.emit('begin_training_process',{project_id:project_id});
+
+    });
+   training_socket.on('started_training'+project_id,function(msg){
+    $("#train_model_using_socket").prop('disabled', false);
+   $("#log-message").append(msg["message"]+"<br>");
+
+    });
+    // prediction from model  related method
+    $("#predict_from_model_using_socket").click(function(){
+     $("#msg-status").html("<div class='alert alert-info' role='alert'> Request accepted <i style='color:#008cba;' class='fas fa-sync fa-spin fa-1x'></i>  </div>");
+
+$("#predict_from_model_using_socket").prop('disabled', true);
+
+   // alert("prediction button clicked");
+
+    training_socket.emit('begin_prediction_process',{project_id:project_id});
+
+    });
+   training_socket.on('prediction_started'+project_id,function(msg){
+   $("#log-message").append(msg["message"]+"<br>");
+   $("#predict_from_model_using_socket").prop('disabled', false);
+    });
+
+    training_socket.on('prediction_completed'+project_id,function(msg)
+    {
+    $("#msg-status").html("<div class='alert alert-info' role='alert'> "+msg["message"]+"<a class='close'  onclick=\"$('.alert').fadeOut(1000)\">&times;</a></div>");
+    });
+    training_socket.on('training_completed'+project_id,function(msg)
+    {
+
+    $("#msg-status").html("<div class='alert alert-info' role='alert'> "+msg["message"]+"<a class='close'  onclick=\"$('.alert').fadeOut(1000)\">&times;</a></div>");
+    })
+
+
+});
+    </script>
+{% endblock %}
+
+{% block body %}
+
+<div id="content">
+<div class="row">
+    <div class="col-md-12" id="msg-status">
+    </div>
+</div>
+<input type="hidden" id="host_url" value="{{request.host_url}}">
+<input type="hidden" id="project_id" value="{{ context['project_id'] }}">
+<button class="btn btn-primary" id="generate_log">View Log</button>
+<button class="btn btn-primary" id="train_model_using_socket">Train {{ context['project_data']['project_detail']['project_name']}} </button>
+<button class="btn btn-primary" id="predict_from_model_using_socket" >Predict {{ context['project_data']['project_detail']['project_name']}} </button>
+
+<div class="row" id="log-panel" style="margin-top:20px;">
+    <div class="col-md-12 ">
+          <div class="log-training-prediction" style="height:80%;">
+                <div  style="background-color:#008cba;color:white;padding:10px;">
+                    <div >  {{ context['project_data']['project_detail']['project_name']}} log details.<span style="float:right;padding-right:5px;padding-left:5px;" id="close-log-menu" class="btn-danger" >X</span></div>
+                </div>
+                <div >
+                    <div id="log-message" style="overflow: auto;padding:10px;" >
+                    Description:<br>
+                    {{ context['project_data']['project_detail']['project_description']}}
+
+                    </div>
+
+                </div>
+        </div>
+    </div>
+</div>
+    <div class="row">
+
+    <div class="col-md-12">
+
+<iframe src="/stream"  class="log-training-prediction" style="background-color:white;overflow: auto;padding:10px;height:80%;width:100%" >
+</iframe>
+    </div>
+    </div>
+</div>
+
+{%endblock %}

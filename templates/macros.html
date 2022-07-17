@@ -1,0 +1,161 @@
+{% macro left_panel() %}
+<div class="col-md-2 " >
+{% if 'email_address' in session %}
+       <ul  class="nav navbar-invert card" style="margin-top:0px;height:100%;box-shadow: 0px 2px 2px rgb(0 0 0 / 30%);">
+                <li  role="presentation" class="left-nav{% if '/upload_file' in request.path   %}active{% endif %} "><span> <a style="text-decoration:none;" href="/upload_file" > File Management</a></span></li>
+                <li role="presentation" class="left-nav{% if '/project' in request.path   %}active{% endif %}"><span><a style="text-decoration:none;" href="/project" > Project Management</a></span></li>
+                <li role="presentation" class="left-nav{% if '/report' in request.path   %}active{% endif %}"><span><a style="text-decoration:none;" href="/report"> Report Management </a></span></li>
+                <li role="presentation" class="left-nav{% if '/scheduler_ajax' in request.path   %}active{% endif %}"><span><a style="text-decoration:none;" href="/scheduler_ajax"> Scheduler Management </a></span></li>
+                <li role="presentation" class="left-nav{% if '/watcher_detail' in request.path   %}active{% endif %}"><span><a style="text-decoration:none;" href="/watcher_detail"> Watcher Management </a></span></li>
+
+
+            </ul>
+{% endif %}
+</div>
+
+{% endmacro %}
+
+{% macro modal_create_directory() %}
+<div class="row">
+    <div class="col-md-4" >
+<div class="modal fade" id="create-dir-modal" data-backdrop="static" >
+
+            <div class="modal-dialog  ">
+                <div class="modal-content ">
+                    <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h6 class="text-primary">Folder Name</h6>
+                    </div>
+                    <div class="modal-body">
+<div id="new-folder-status"></div>
+                            <div class="form-group">
+                                <div class="form-group">
+                                    <label for="folder_name"><b>Folder Name</b></label>
+                                    <input id="new-folder-name" class="form-control" type="text" placeholder="Folder Name" name="folder_name"  required>
+                                </div>
+                            </div>
+                             <button id="save-folder"   class="btn btn-primary"  >Save Folder</button>
+
+
+                    </div>
+                </div>
+            </div>
+    </div>
+    </div>
+</div>
+
+{% endmacro %}
+
+
+
+{% macro delete_folder() %}
+<div class="row">
+    <div class="col-md-4" >
+<div class="modal fade" id="delete-folder-modal" data-backdrop="static" >
+
+            <div class="modal-dialog  ">
+                <div class="modal-content ">
+                    <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h6 class="text-primary">Write confirm if you want to delete selected folder</h6>
+                    </div>
+                    <div class="modal-body">
+<div id="delete-folder-status"></div>
+                            <div class="form-group">
+                                <div class="form-group">
+                                    <label for="folder_name"><b>Write "confirm"</b></label>
+                                    <input id="user-confirmation-folder" class="form-control" type="text" placeholder="write confirm" name="user_confirmation_folder"  required>
+                                </div>
+                            </div>
+                             <button id="delete-folder-btn-confirm"   class="btn btn-danger"  >delete Folder</button>
+
+
+                    </div>
+                </div>
+            </div>
+    </div>
+    </div>
+</div>
+
+{% endmacro %}
+
+
+{% macro delete_file() %}
+<div class="row">
+    <div class="col-md-4" >
+<div class="modal fade" id="delete-file-modal" data-backdrop="static" >
+
+            <div class="modal-dialog  ">
+                <div class="modal-content ">
+                    <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h6 class="text-primary">Write confirm if you want to delete selected file</h6>
+                    </div>
+                    <div class="modal-body">
+<div id="delete-file-status"></div>
+                            <div class="form-group">
+                                <div class="form-group">
+                                    <label for="folder_name"><b>Write "confirm"</b></label>
+                                    <input id="user-confirmation-file" class="form-control" type="text" placeholder="write confirm" name="user_confirmation_file"  required>
+                                </div>
+                            </div>
+                             <button id="delete-file-btn-confirm"   class="btn btn-danger"  >Delete File</button>
+
+
+                    </div>
+                </div>
+            </div>
+    </div>
+    </div>
+</div>
+
+{% endmacro %}
+
+
+
+{% macro upload_file() %}
+<div class="row">
+    <div class="col-md-4" >
+<div class="modal fade" id="upload-file-modal" data-backdrop="static" >
+
+            <div class="modal-dialog  ">
+                <div class="modal-content">
+                    <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h6 class="text-primary">Upload File</h6>
+                    </div>
+                    <div class="modal-body">
+<form id="upload-file" method="post" enctype="multipart/form-data">
+
+<div id="file-upload-status"></div>
+        <input id="selected-file" name="files" type="file" multiple>
+        <input type="hidden" id="uploadFolder" name="upload_folder_name_of_file" value=""/>
+        <input type="hidden"  id="cloudProvider" name="cloud_to_upload" value=""/>
+
+        <button id="upload-file-btn" type="button">Upload</button>
+
+</form>
+
+</form>
+
+                    </div>
+                </div>
+            </div>
+    </div>
+    </div>
+</div>
+
+{% endmacro %}
+
+{% macro folders() %}
+<div class="col-md-12">
+<label id="directory-label" >Directory path :</label><input type="text" id="current_folder_name" value="" placeholder="" />
+    </div>
+<div class="rows " id="folder" style="word-wrap: break-word;"></div>
+
+{% endmacro %}
+
+{% macro files() %}
+
+
+{% endmacro %}

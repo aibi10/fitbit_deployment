@@ -1,0 +1,129 @@
+785ba261-f516-463e-85b8-cfb22883c49d avnish@ineuron.ai: 2021-12-18 09:39:47 > Archiving of existing model begin
+785ba261-f516-463e-85b8-cfb22883c49d avnish@ineuron.ai: 2021-12-18 09:39:50 > Archive model path ineuron/training/archive/project/mushroom_classifier/model/model_2021-12-18_093947 will be created.
+785ba261-f516-463e-85b8-cfb22883c49d avnish@ineuron.ai: 2021-12-18 09:39:50 > Moving file KMeans.sav from directory[ineuron/training/data/project/mushroom_classifier/model/KMeans] to archive location: [ineuron/training/archive/project/mushroom_classifier/model/model_2021-12-18_093947/KMeans]
+785ba261-f516-463e-85b8-cfb22883c49d avnish@ineuron.ai: 2021-12-18 09:40:05 > file KMeans.sav has been archived successfully from directory[ineuron/training/data/project/mushroom_classifier/model/KMeans] to archive location: [ineuron/training/archive/project/mushroom_classifier/model/model_2021-12-18_093947]
+785ba261-f516-463e-85b8-cfb22883c49d avnish@ineuron.ai: 2021-12-18 09:40:05 > Moving file XG_BOOST0.sav from directory[ineuron/training/data/project/mushroom_classifier/model/XG_BOOST0] to archive location: [ineuron/training/archive/project/mushroom_classifier/model/model_2021-12-18_093947/XG_BOOST0]
+785ba261-f516-463e-85b8-cfb22883c49d avnish@ineuron.ai: 2021-12-18 09:40:21 > file XG_BOOST0.sav has been archived successfully from directory[ineuron/training/data/project/mushroom_classifier/model/XG_BOOST0] to archive location: [ineuron/training/archive/project/mushroom_classifier/model/model_2021-12-18_093947]
+785ba261-f516-463e-85b8-cfb22883c49d avnish@ineuron.ai: 2021-12-18 09:40:21 > Moving file XG_BOOST1.sav from directory[ineuron/training/data/project/mushroom_classifier/model/XG_BOOST1] to archive location: [ineuron/training/archive/project/mushroom_classifier/model/model_2021-12-18_093947/XG_BOOST1]
+785ba261-f516-463e-85b8-cfb22883c49d avnish@ineuron.ai: 2021-12-18 09:40:36 > file XG_BOOST1.sav has been archived successfully from directory[ineuron/training/data/project/mushroom_classifier/model/XG_BOOST1] to archive location: [ineuron/training/archive/project/mushroom_classifier/model/model_2021-12-18_093947]
+785ba261-f516-463e-85b8-cfb22883c49d avnish@ineuron.ai: 2021-12-18 09:40:36 > Moving file XG_BOOST2.sav from directory[ineuron/training/data/project/mushroom_classifier/model/XG_BOOST2] to archive location: [ineuron/training/archive/project/mushroom_classifier/model/model_2021-12-18_093947/XG_BOOST2]
+785ba261-f516-463e-85b8-cfb22883c49d avnish@ineuron.ai: 2021-12-18 09:40:49 > file XG_BOOST2.sav has been archived successfully from directory[ineuron/training/data/project/mushroom_classifier/model/XG_BOOST2] to archive location: [ineuron/training/archive/project/mushroom_classifier/model/model_2021-12-18_093947]
+785ba261-f516-463e-85b8-cfb22883c49d avnish@ineuron.ai: 2021-12-18 09:40:49 > Moving file XG_BOOST3.sav from directory[ineuron/training/data/project/mushroom_classifier/model/XG_BOOST3] to archive location: [ineuron/training/archive/project/mushroom_classifier/model/model_2021-12-18_093947/XG_BOOST3]
+785ba261-f516-463e-85b8-cfb22883c49d avnish@ineuron.ai: 2021-12-18 09:41:10 > file XG_BOOST3.sav has been archived successfully from directory[ineuron/training/data/project/mushroom_classifier/model/XG_BOOST3] to archive location: [ineuron/training/archive/project/mushroom_classifier/model/model_2021-12-18_093947]
+785ba261-f516-463e-85b8-cfb22883c49d avnish@ineuron.ai: 2021-12-18 09:41:10 > Moving file XG_BOOST4.sav from directory[ineuron/training/data/project/mushroom_classifier/model/XG_BOOST4] to archive location: [ineuron/training/archive/project/mushroom_classifier/model/model_2021-12-18_093947/XG_BOOST4]
+<p style='color:red'>ec8bb226-a84d-4063-ae2b-39848cb3b535 avnish@ineuron.ai</P>: 2021-12-18 09:46:54 > Archiving of existing model begin
+<p style='color:red'>ec8bb226-a84d-4063-ae2b-39848cb3b535 avnish@ineuron.ai</P>: 2021-12-18 09:46:57 > Archive model path ineuron/training/archive/project/mushroom_classifier/model/model_2021-12-18_094654 will be created.
+<p style='color:red'>ec8bb226-a84d-4063-ae2b-39848cb3b535 avnish@ineuron.ai</P>: 2021-12-18 09:46:57 > Moving file XG_BOOST4.sav from directory[ineuron/training/data/project/mushroom_classifier/model/XG_BOOST4] to archive location: [ineuron/training/archive/project/mushroom_classifier/model/model_2021-12-18_094654/XG_BOOST4]
+<p style='color:red'>ec8bb226-a84d-4063-ae2b-39848cb3b535 avnish@ineuron.ai</P>: 2021-12-18 09:47:12 > file XG_BOOST4.sav has been archived successfully from directory[ineuron/training/data/project/mushroom_classifier/model/XG_BOOST4] to archive location: [ineuron/training/archive/project/mushroom_classifier/model/model_2021-12-18_094654]
+<p style='color:red'>ec8bb226-a84d-4063-ae2b-39848cb3b535 avnish@ineuron.ai</P>: 2021-12-18 09:47:12 > Archiving of existing model completed.
+<p style='color:red'>ec8bb226-a84d-4063-ae2b-39848cb3b535 avnish@ineuron.ai</P>: 2021-12-18 09:47:14 > Start of Validation on files!!
+<p style='color:red'>ec8bb226-a84d-4063-ae2b-39848cb3b535 avnish@ineuron.ai</P>: 2021-12-18 09:47:14 > LengthOfDateStampInFile:: 8	LengthOfTimeStampInFile:: 6	 NumberofColumns:: 23
+
+<p style='color:red'>ec8bb226-a84d-4063-ae2b-39848cb3b535 avnish@ineuron.ai</P>: 2021-12-18 09:47:14 > Removing bad raw directory
+<p style='color:red'>ec8bb226-a84d-4063-ae2b-39848cb3b535 avnish@ineuron.ai</P>: 2021-12-18 09:47:15 > ineuron/training/data/project/mushroom_classifier/bad_raw_data_files directory deleted successfully
+<p style='color:red'>ec8bb226-a84d-4063-ae2b-39848cb3b535 avnish@ineuron.ai</P>: 2021-12-18 09:47:15 > Removing good raw directory
+<p style='color:red'>ec8bb226-a84d-4063-ae2b-39848cb3b535 avnish@ineuron.ai</P>: 2021-12-18 09:47:16 > ineuron/training/data/project/mushroom_classifier/good_raw_data_files directory deleted successfully
+<p style='color:red'>ec8bb226-a84d-4063-ae2b-39848cb3b535 avnish@ineuron.ai</P>: 2021-12-18 09:47:16 > Good raw and bad raw directory creation begin..
+<p style='color:red'>ec8bb226-a84d-4063-ae2b-39848cb3b535 avnish@ineuron.ai</P>: 2021-12-18 09:47:29 > ineuron/training/data/project/mushroom_classifier/good_raw_data_files and ineuron/training/data/project/mushroom_classifier/bad_raw_data_files directory created successfully
+<p style='color:red'>ec8bb226-a84d-4063-ae2b-39848cb3b535 avnish@ineuron.ai</P>: 2021-12-18 09:47:34 > Valid File name!! File moved to GoodRaw Folder :: mushroom_08012006_120010.csv
+<p style='color:red'>ec8bb226-a84d-4063-ae2b-39848cb3b535 avnish@ineuron.ai</P>: 2021-12-18 09:47:39 > Valid File name!! File moved to GoodRaw Folder :: mushroom_08012007_120011.csv
+<p style='color:red'>ec8bb226-a84d-4063-ae2b-39848cb3b535 avnish@ineuron.ai</P>: 2021-12-18 09:47:42 > Valid File name!! File moved to GoodRaw Folder :: mushroom_08012008_120012.csv
+<p style='color:red'>ec8bb226-a84d-4063-ae2b-39848cb3b535 avnish@ineuron.ai</P>: 2021-12-18 09:47:45 > Valid File name!! File moved to GoodRaw Folder :: mushroom_08012009_120013.csv
+<p style='color:red'>ec8bb226-a84d-4063-ae2b-39848cb3b535 avnish@ineuron.ai</P>: 2021-12-18 09:47:48 > Valid File name!! File moved to GoodRaw Folder :: mushroom_08012010_120014.csv
+<p style='color:red'>ec8bb226-a84d-4063-ae2b-39848cb3b535 avnish@ineuron.ai</P>: 2021-12-18 09:47:51 > Valid File name!! File moved to GoodRaw Folder :: mushroom_08012011_120015.csv
+<p style='color:red'>ec8bb226-a84d-4063-ae2b-39848cb3b535 avnish@ineuron.ai</P>: 2021-12-18 09:47:54 > Valid File name!! File moved to GoodRaw Folder :: mushroom_08012012_120016.csv
+<p style='color:red'>ec8bb226-a84d-4063-ae2b-39848cb3b535 avnish@ineuron.ai</P>: 2021-12-18 09:47:57 > Valid File name!! File moved to GoodRaw Folder :: mushroom_08012013_120017.csv
+<p style='color:red'>ec8bb226-a84d-4063-ae2b-39848cb3b535 avnish@ineuron.ai</P>: 2021-12-18 09:48:00 > Valid File name!! File moved to GoodRaw Folder :: mushroom_08012014_120018.csv
+<p style='color:red'>ec8bb226-a84d-4063-ae2b-39848cb3b535 avnish@ineuron.ai</P>: 2021-12-18 09:48:03 > Valid File name!! File moved to GoodRaw Folder :: mushroom_08012015_120019.csv
+<p style='color:red'>ec8bb226-a84d-4063-ae2b-39848cb3b535 avnish@ineuron.ai</P>: 2021-12-18 09:48:06 > Invalid File Name!! File moved to Bad Raw Folder :: mushroom_08012016_120.csv
+<p style='color:red'>ec8bb226-a84d-4063-ae2b-39848cb3b535 avnish@ineuron.ai</P>: 2021-12-18 09:48:09 > Valid File name!! File moved to GoodRaw Folder :: mushroom_08012016_120020.csv
+<p style='color:red'>ec8bb226-a84d-4063-ae2b-39848cb3b535 avnish@ineuron.ai</P>: 2021-12-18 09:48:12 > Valid File name!! File moved to GoodRaw Folder :: mushroom_08012017_120021.csv
+<p style='color:red'>ec8bb226-a84d-4063-ae2b-39848cb3b535 avnish@ineuron.ai</P>: 2021-12-18 09:48:15 > Invalid File Name!! File moved to Bad Raw Folder :: mushroom_08012017_1201.csv
+<p style='color:red'>ec8bb226-a84d-4063-ae2b-39848cb3b535 avnish@ineuron.ai</P>: 2021-12-18 09:48:18 > Valid File name!! File moved to GoodRaw Folder :: mushroom_08012018_120022.csv
+<p style='color:red'>ec8bb226-a84d-4063-ae2b-39848cb3b535 avnish@ineuron.ai</P>: 2021-12-18 09:48:21 > Valid File name!! File moved to GoodRaw Folder :: mushroom_08012018_120088.csv
+<p style='color:red'>ec8bb226-a84d-4063-ae2b-39848cb3b535 avnish@ineuron.ai</P>: 2021-12-18 09:48:21 > Column Length Validation Started!!
+<p style='color:red'>ec8bb226-a84d-4063-ae2b-39848cb3b535 avnish@ineuron.ai</P>: 2021-12-18 09:48:42 > Invalid Column Length for the file!! File moved to Bad Raw Folder :: mushroom_08012018_120088.csv
+<p style='color:red'>ec8bb226-a84d-4063-ae2b-39848cb3b535 avnish@ineuron.ai</P>: 2021-12-18 09:48:42 > Column Length Validation Completed!!
+<p style='color:red'>ec8bb226-a84d-4063-ae2b-39848cb3b535 avnish@ineuron.ai</P>: 2021-12-18 09:48:42 > Missing Values Validation Started!!
+<p style='color:red'>ec8bb226-a84d-4063-ae2b-39848cb3b535 avnish@ineuron.ai</P>: 2021-12-18 09:49:40 > Raw Data Validation Complete!!
+<p style='color:red'>ec8bb226-a84d-4063-ae2b-39848cb3b535 avnish@ineuron.ai</P>: 2021-12-18 09:49:40 > Starting Data Transforamtion!!
+<p style='color:red'>ec8bb226-a84d-4063-ae2b-39848cb3b535 avnish@ineuron.ai</P>: 2021-12-18 09:49:40 > DataTransformation Completed!!!
+<p style='color:red'>ec8bb226-a84d-4063-ae2b-39848cb3b535 avnish@ineuron.ai</P>: 2021-12-18 09:49:40 > Creating Training_Database and tables on the basis of given schema!!!
+<p style='color:red'>ec8bb226-a84d-4063-ae2b-39848cb3b535 avnish@ineuron.ai</P>: 2021-12-18 09:49:40 > Table creation Completed!!
+<p style='color:red'>ec8bb226-a84d-4063-ae2b-39848cb3b535 avnish@ineuron.ai</P>: 2021-12-18 09:49:40 > Insertion of Data into Table started!!!!
+<p style='color:red'>ec8bb226-a84d-4063-ae2b-39848cb3b535 avnish@ineuron.ai</P>: 2021-12-18 09:49:40 > Creating database and collection if not exist then create and insert record
+<p style='color:red'>ec8bb226-a84d-4063-ae2b-39848cb3b535 avnish@ineuron.ai</P>: 2021-12-18 09:49:40 > Droping existing collection if present in database training_system_log
+<p style='color:red'>ec8bb226-a84d-4063-ae2b-39848cb3b535 avnish@ineuron.ai</P>: 2021-12-18 09:49:40 > Starting loading of good files in database:training_database and collection: Good_Raw_Data
+<p style='color:red'>ec8bb226-a84d-4063-ae2b-39848cb3b535 avnish@ineuron.ai</P>: 2021-12-18 09:49:42 > 13 files found in ineuron/training/data/project/mushroom_classifier/good_raw_data_files 
+<p style='color:red'>ec8bb226-a84d-4063-ae2b-39848cb3b535 avnish@ineuron.ai</P>: 2021-12-18 09:49:42 > Insertion of file mushroom_08012006_120010.csv started...
+<p style='color:red'>ec8bb226-a84d-4063-ae2b-39848cb3b535 avnish@ineuron.ai</P>: 2021-12-18 09:49:43 > File: mushroom_08012006_120010.csv loaded successfully
+<p style='color:red'>ec8bb226-a84d-4063-ae2b-39848cb3b535 avnish@ineuron.ai</P>: 2021-12-18 09:49:43 > Insertion of file mushroom_08012007_120011.csv started...
+<p style='color:red'>ec8bb226-a84d-4063-ae2b-39848cb3b535 avnish@ineuron.ai</P>: 2021-12-18 09:49:44 > File: mushroom_08012007_120011.csv loaded successfully
+<p style='color:red'>ec8bb226-a84d-4063-ae2b-39848cb3b535 avnish@ineuron.ai</P>: 2021-12-18 09:49:44 > Insertion of file mushroom_08012008_120012.csv started...
+<p style='color:red'>ec8bb226-a84d-4063-ae2b-39848cb3b535 avnish@ineuron.ai</P>: 2021-12-18 09:49:45 > File: mushroom_08012008_120012.csv loaded successfully
+<p style='color:red'>ec8bb226-a84d-4063-ae2b-39848cb3b535 avnish@ineuron.ai</P>: 2021-12-18 09:49:45 > Insertion of file mushroom_08012009_120013.csv started...
+<p style='color:red'>ec8bb226-a84d-4063-ae2b-39848cb3b535 avnish@ineuron.ai</P>: 2021-12-18 09:49:46 > File: mushroom_08012009_120013.csv loaded successfully
+<p style='color:red'>ec8bb226-a84d-4063-ae2b-39848cb3b535 avnish@ineuron.ai</P>: 2021-12-18 09:49:46 > Insertion of file mushroom_08012010_120014.csv started...
+<p style='color:red'>ec8bb226-a84d-4063-ae2b-39848cb3b535 avnish@ineuron.ai</P>: 2021-12-18 09:49:48 > File: mushroom_08012010_120014.csv loaded successfully
+<p style='color:red'>ec8bb226-a84d-4063-ae2b-39848cb3b535 avnish@ineuron.ai</P>: 2021-12-18 09:49:48 > Insertion of file mushroom_08012011_120015.csv started...
+<p style='color:red'>ec8bb226-a84d-4063-ae2b-39848cb3b535 avnish@ineuron.ai</P>: 2021-12-18 09:49:49 > File: mushroom_08012011_120015.csv loaded successfully
+<p style='color:red'>ec8bb226-a84d-4063-ae2b-39848cb3b535 avnish@ineuron.ai</P>: 2021-12-18 09:49:49 > Insertion of file mushroom_08012012_120016.csv started...
+<p style='color:red'>ec8bb226-a84d-4063-ae2b-39848cb3b535 avnish@ineuron.ai</P>: 2021-12-18 09:49:50 > File: mushroom_08012012_120016.csv loaded successfully
+<p style='color:red'>ec8bb226-a84d-4063-ae2b-39848cb3b535 avnish@ineuron.ai</P>: 2021-12-18 09:49:50 > Insertion of file mushroom_08012013_120017.csv started...
+<p style='color:red'>ec8bb226-a84d-4063-ae2b-39848cb3b535 avnish@ineuron.ai</P>: 2021-12-18 09:49:51 > File: mushroom_08012013_120017.csv loaded successfully
+<p style='color:red'>ec8bb226-a84d-4063-ae2b-39848cb3b535 avnish@ineuron.ai</P>: 2021-12-18 09:49:51 > Insertion of file mushroom_08012014_120018.csv started...
+<p style='color:red'>ec8bb226-a84d-4063-ae2b-39848cb3b535 avnish@ineuron.ai</P>: 2021-12-18 09:49:55 > File: mushroom_08012014_120018.csv loaded successfully
+<p style='color:red'>ec8bb226-a84d-4063-ae2b-39848cb3b535 avnish@ineuron.ai</P>: 2021-12-18 09:49:55 > Insertion of file mushroom_08012015_120019.csv started...
+<p style='color:red'>ec8bb226-a84d-4063-ae2b-39848cb3b535 avnish@ineuron.ai</P>: 2021-12-18 09:49:56 > File: mushroom_08012015_120019.csv loaded successfully
+<p style='color:red'>ec8bb226-a84d-4063-ae2b-39848cb3b535 avnish@ineuron.ai</P>: 2021-12-18 09:49:56 > Insertion of file mushroom_08012016_120020.csv started...
+<p style='color:red'>ec8bb226-a84d-4063-ae2b-39848cb3b535 avnish@ineuron.ai</P>: 2021-12-18 09:49:57 > File: mushroom_08012016_120020.csv loaded successfully
+<p style='color:red'>ec8bb226-a84d-4063-ae2b-39848cb3b535 avnish@ineuron.ai</P>: 2021-12-18 09:49:57 > Insertion of file mushroom_08012017_120021.csv started...
+<p style='color:red'>ec8bb226-a84d-4063-ae2b-39848cb3b535 avnish@ineuron.ai</P>: 2021-12-18 09:49:59 > File: mushroom_08012017_120021.csv loaded successfully
+<p style='color:red'>ec8bb226-a84d-4063-ae2b-39848cb3b535 avnish@ineuron.ai</P>: 2021-12-18 09:49:59 > Insertion of file mushroom_08012018_120022.csv started...
+<p style='color:red'>ec8bb226-a84d-4063-ae2b-39848cb3b535 avnish@ineuron.ai</P>: 2021-12-18 09:50:00 > File: mushroom_08012018_120022.csv loaded successfully
+<p style='color:red'>ec8bb226-a84d-4063-ae2b-39848cb3b535 avnish@ineuron.ai</P>: 2021-12-18 09:50:00 > Insertion in Table completed!!!
+<p style='color:red'>ec8bb226-a84d-4063-ae2b-39848cb3b535 avnish@ineuron.ai</P>: 2021-12-18 09:50:00 > Deleting Good Data Folder!!!
+<p style='color:red'>ec8bb226-a84d-4063-ae2b-39848cb3b535 avnish@ineuron.ai</P>: 2021-12-18 09:50:00 > Removing good raw directory
+<p style='color:red'>ec8bb226-a84d-4063-ae2b-39848cb3b535 avnish@ineuron.ai</P>: 2021-12-18 09:50:04 > ineuron/training/data/project/mushroom_classifier/good_raw_data_files directory deleted successfully
+<p style='color:red'>ec8bb226-a84d-4063-ae2b-39848cb3b535 avnish@ineuron.ai</P>: 2021-12-18 09:50:04 > Good_Data folder deleted!!!
+<p style='color:red'>ec8bb226-a84d-4063-ae2b-39848cb3b535 avnish@ineuron.ai</P>: 2021-12-18 09:50:04 > Moving bad files to Archive and deleting Bad_Data folder!!!
+<p style='color:red'>ec8bb226-a84d-4063-ae2b-39848cb3b535 avnish@ineuron.ai</P>: 2021-12-18 09:50:04 > Archiving of bad training file begin.
+<p style='color:red'>ec8bb226-a84d-4063-ae2b-39848cb3b535 avnish@ineuron.ai</P>: 2021-12-18 09:50:26 > Bad files moved to archive
+<p style='color:red'>ec8bb226-a84d-4063-ae2b-39848cb3b535 avnish@ineuron.ai</P>: 2021-12-18 09:50:27 > Bad Raw Data Folder Deleted successfully!!
+<p style='color:red'>ec8bb226-a84d-4063-ae2b-39848cb3b535 avnish@ineuron.ai</P>: 2021-12-18 09:50:27 > Archiving of bad training file done.
+<p style='color:red'>ec8bb226-a84d-4063-ae2b-39848cb3b535 avnish@ineuron.ai</P>: 2021-12-18 09:50:28 > Bad files moved to archive!! Bad folder Deleted!!
+<p style='color:red'>ec8bb226-a84d-4063-ae2b-39848cb3b535 avnish@ineuron.ai</P>: 2021-12-18 09:50:28 > Validation Operation completed!!
+<p style='color:red'>ec8bb226-a84d-4063-ae2b-39848cb3b535 avnish@ineuron.ai</P>: 2021-12-18 09:50:28 > Extracting csv file from table
+<p style='color:red'>ec8bb226-a84d-4063-ae2b-39848cb3b535 avnish@ineuron.ai</P>: 2021-12-18 09:50:28 > starting of loading of database:training_database,collection:Good_Raw_Data records into InputFile.csv
+<p style='color:red'>ec8bb226-a84d-4063-ae2b-39848cb3b535 avnish@ineuron.ai</P>: 2021-12-18 09:50:28 > Good_Raw_data has been loaded into pandas dataframe
+<p style='color:red'>ec8bb226-a84d-4063-ae2b-39848cb3b535 avnish@ineuron.ai</P>: 2021-12-18 09:50:36 > InputFile.csv created successfully in directoryineuron/training/data/project/mushroom_classifier/training_file_from_db
+<p style='color:red'>ec8bb226-a84d-4063-ae2b-39848cb3b535 avnish@ineuron.ai</P>: 2021-12-18 09:50:37 > Start of Training
+<p style='color:red'>ec8bb226-a84d-4063-ae2b-39848cb3b535 avnish@ineuron.ai</P>: 2021-12-18 09:50:37 > Entered the get_data method of the Data_Getter class
+<p style='color:red'>ec8bb226-a84d-4063-ae2b-39848cb3b535 avnish@ineuron.ai</P>: 2021-12-18 09:50:40 > Data Load Successful.Exited the get_data method of the Data_Getter class
+<p style='color:red'>ec8bb226-a84d-4063-ae2b-39848cb3b535 avnish@ineuron.ai</P>: 2021-12-18 09:50:40 > Entered the remove_columns method of the Preprocessor class
+<p style='color:red'>ec8bb226-a84d-4063-ae2b-39848cb3b535 avnish@ineuron.ai</P>: 2021-12-18 09:50:40 > Column removal Successful.Exited the remove_columns method of the Preprocessor class
+<p style='color:red'>ec8bb226-a84d-4063-ae2b-39848cb3b535 avnish@ineuron.ai</P>: 2021-12-18 09:50:40 > Entered the is_null_present method of the Preprocessor class
+<p style='color:red'>ec8bb226-a84d-4063-ae2b-39848cb3b535 avnish@ineuron.ai</P>: 2021-12-18 09:50:44 > Finding missing values is a success.Data written to the null values file. Exited the is_null_present method of the Preprocessor class
+<p style='color:red'>ec8bb226-a84d-4063-ae2b-39848cb3b535 avnish@ineuron.ai</P>: 2021-12-18 09:50:44 > Entered the impute_missing_values method of the Preprocessor class
+<p style='color:red'>ec8bb226-a84d-4063-ae2b-39848cb3b535 avnish@ineuron.ai</P>: 2021-12-18 09:50:44 > Imputing missing values Successful. Exited the impute_missing_values method of the Preprocessor class
+<p style='color:red'>ec8bb226-a84d-4063-ae2b-39848cb3b535 avnish@ineuron.ai</P>: 2021-12-18 09:50:57 > Entered the separate_label_feature method of the Preprocessor class
+<p style='color:red'>ec8bb226-a84d-4063-ae2b-39848cb3b535 avnish@ineuron.ai</P>: 2021-12-18 09:50:57 > Label Separation Successful. Exited the separate_label_feature method of the Preprocessor class
+<p style='color:red'>ec8bb226-a84d-4063-ae2b-39848cb3b535 avnish@ineuron.ai</P>: 2021-12-18 09:50:57 > Entered the elbow_plot method of the KMeansClustering class
+<p style='color:red'>ec8bb226-a84d-4063-ae2b-39848cb3b535 avnish@ineuron.ai</P>: 2021-12-18 09:51:04 > The optimum number of clusters is: 5. Exited the elbow_plot method of the KMeansClustering class
+<p style='color:red'>ec8bb226-a84d-4063-ae2b-39848cb3b535 avnish@ineuron.ai</P>: 2021-12-18 09:51:04 > Entered the create_clusters method of the KMeansClustering class
+<p style='color:red'>ec8bb226-a84d-4063-ae2b-39848cb3b535 avnish@ineuron.ai</P>: 2021-12-18 09:51:05 > Entered the save_model method of the File_Operation class
+<p style='color:red'>ec8bb226-a84d-4063-ae2b-39848cb3b535 avnish@ineuron.ai</P>: 2021-12-18 09:51:15 > Model File KMeanssaved. Exited the save_model method of the Model_Finder class
+<p style='color:red'>ec8bb226-a84d-4063-ae2b-39848cb3b535 avnish@ineuron.ai</P>: 2021-12-18 09:51:15 > successfully created 5clusters. Exited the create_clusters method of the KMeansClustering class
+<p style='color:red'>ec8bb226-a84d-4063-ae2b-39848cb3b535 avnish@ineuron.ai</P>: 2021-12-18 09:51:15 > Entered the get_best_model method of the Model_Finder class
+<p style='color:red'>ec8bb226-a84d-4063-ae2b-39848cb3b535 avnish@ineuron.ai</P>: 2021-12-18 09:51:15 > Entered the get_best_params_for_xgboost method of the Model_Finder class
+<p style='color:red'>ec8bb226-a84d-4063-ae2b-39848cb3b535 avnish@ineuron.ai</P>: 2021-12-18 09:51:51 > XGBoost best params: {'criterion': 'gini', 'max_depth': 8, 'n_estimators': 100}. Exited the get_best_params_for_xgboost method of the Model_Finder class
+<p style='color:red'>ec8bb226-a84d-4063-ae2b-39848cb3b535 avnish@ineuron.ai</P>: 2021-12-18 09:51:51 > AUC for XGBoost:1.0
+<p style='color:red'>ec8bb226-a84d-4063-ae2b-39848cb3b535 avnish@ineuron.ai</P>: 2021-12-18 09:51:53 > Entered the get_best_params_for_naive_bayes method of the Model_Finder class
+<p style='color:red'>ec8bb226-a84d-4063-ae2b-39848cb3b535 avnish@ineuron.ai</P>: 2021-12-18 09:51:54 > Naive Bayes best params: {'var_smoothing': 0.01}. Exited the get_best_params_for_naive_bayes method of the Model_Finder class
+<p style='color:red'>ec8bb226-a84d-4063-ae2b-39848cb3b535 avnish@ineuron.ai</P>: 2021-12-18 09:51:54 > AUC for naive bayes score:0.9837686149715337
+<p style='color:red'>ec8bb226-a84d-4063-ae2b-39848cb3b535 avnish@ineuron.ai</P>: 2021-12-18 09:51:58 > Entered the get_best_params_for_random_forest method of the Model_Finder class
+<p style='color:red'>ec8bb226-a84d-4063-ae2b-39848cb3b535 avnish@ineuron.ai</P>: 2021-12-18 09:52:15 > Random Forest best params: {'criterion': 'gini', 'max_depth': 3, 'max_features': 'auto', 'n_estimators': 130}.Exited the get_best_params_for_random_forest method of the Model_Finder class
+<p style='color:red'>ec8bb226-a84d-4063-ae2b-39848cb3b535 avnish@ineuron.ai</P>: 2021-12-18 09:52:15 > AUC for Random Forest0.9383561643835616
+<p style='color:red'>ec8bb226-a84d-4063-ae2b-39848cb3b535 avnish@ineuron.ai</P>: 2021-12-18 09:52:17 > Entered the get_best_params_for_KNN method of the Model_Finder class
+<p style='color:red'>ec8bb226-a84d-4063-ae2b-39848cb3b535 avnish@ineuron.ai</P>: 2021-12-18 09:53:32 > KNN best params: {'algorithm': 'ball_tree', 'leaf_size': 10, 'n_neighbors': 4, 'p': 1}. Exited the KNN method of the Model_Finder class
+<p style='color:red'>ec8bb226-a84d-4063-ae2b-39848cb3b535 avnish@ineuron.ai</P>: 2021-12-18 09:53:32 > AUC for KNN0.9981851179673321

@@ -1,0 +1,55 @@
+{% extends 'header.html' %}
+
+{% block head %}
+
+
+
+<title>Report Management</title>
+
+<style>
+    .panel-heading
+    {
+    text-decoration:none;
+
+    color:white;
+    font-weight:bold;
+    }
+       .panel-heading:hover
+    {
+    text-decoration:none;
+    cursor: pointer;
+    color:white;
+    font-weight:bold;
+
+    }
+    .panel-heading a{
+    text-decoration:none;
+    }
+
+</style>
+{% endblock %}
+
+{% block body %}
+<div>
+         <div id="msg-status"></div>
+<div style="text-align:center;font-size:14px;">Report Management</div>
+            <div  style="word-wrap: break-word;">
+                            <div class="row" id="project-list">
+                                {% if context['status'] %}
+                                {% for project in context['project_list'] %}
+                                <div class="col-md-3">
+                                    <div class="panel panel-default card" style="height:30%;">
+                                        <div class="panel-heading" style="background-color:#008cba;color:white">
+                                            <h3 class="panel-title"><a  href="/report_detail?project_id={{project['project_id']}}">{{project['project_name']}}</a></h3></div>
+                                        <div class="panel-body"><span>{{project['project_description'][:200]}}</span>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                                {% endif %}
+                </div>
+            </div>
+</div>
+
+{% endblock %}

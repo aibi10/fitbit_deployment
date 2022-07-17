@@ -1,0 +1,224 @@
+{% from "macros.html" import left_panel with context %}
+{% from "macros.html" import modal_create_directory with context %}
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="google-site-verification" content="hEDvQrYp1Hsq5WQcqyLBLLNhNcTLeUxxx_wi0zUeMHk" />
+    <link href="{{ url_for('static', filename='assets/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cookie">
+    <link href="{{ url_for('static', filename='assets/fonts/font-awesome.min.css') }}" rel="stylesheet" />
+    <link href="{{ url_for('static', filename='assets/css/styles.css') }}" rel="stylesheet" />
+    <link href="{{ url_for('static', filename='assets/css/Material-Card.css') }}" rel="stylesheet" />
+    <link href="{{ url_for('static', filename='assets/css/Pretty-Footer.css') }}" rel="stylesheet" />
+
+       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="https://kit.fontawesome.com/373e10f45a.js" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
+
+<script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
+      <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"/>
+<script>
+     $(document).ready(function(){
+
+     if( localStorage.theme) {
+           $("#header-color").attr('class',localStorage.theme);
+         }
+$("#apply-theme").click(function(){
+var theme_value=$('input[name="themecolor"]:checked').val();
+$("#header-color").attr('class',theme_value);
+localStorage.theme=theme_value;
+});
+
+
+    });
+</script>
+    <style>
+        .left-nav{
+        padding:10px;
+
+        font-family: "Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+        font-weight: 300;
+        line-height: 1.1;
+        color: inherit;
+
+        }
+        .left-navactive
+        {
+         padding:10px;
+         box-shadow: 5px 1px 5px 0px rgba(0,0,0,0.75);
+         font-family: "Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+        font-weight: 300;
+        line-height: 1.1;
+        color: inherit;
+
+        }
+    </style>
+    {% block head %}{% endblock %}
+</head>
+
+
+<body>
+    <nav id="header-color" class="navbar navbar-default navbar-fixed-top box" >
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand navbar-link" href="#" >Machine Learning</a>
+                <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+            </div>
+            <div class="collapse navbar-collapse" id="navcol-1">
+                <ul class="nav navbar-nav navbar-left">
+                    <li role="presentation"><a href="/" class="text-uppercase"><i class="fas fa-home"></i>&nbsp;Home</a></li>
+                    <li role="presentation"><a href="/dashboard" class="text-uppercase">Dashboard</a></li>
+                    <li role="presentation"><a href="#contact-data" class="text-uppercase"> <i class="fa fa-phone"></i>Contact</a></li>
+                    <li role="presentation"><a href="/upload_file" class="text-uppercase"> File Management</a></li>
+                    <li role="presentation"><a href="/project" class="text-uppercase"> Projects </a></li>
+                    <li role="presentation"><a href="/report" class="text-uppercase"> Report Management</a></li>
+                    <li role="presentation"><a href="/scheduler_ajax" class="text-uppercase">Schedule Job</a></li>
+
+
+                </ul>
+
+
+                {% if 'email_address' in session %}
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                        <a href="#"><i class='fas fa-user'></i>&nbsp;"Hello" {{ session['email_address'] }}</a>
+                        </li>
+                        <li><a href="/logout"> <i class='fas fa-sign-out-alt'></i>&nbsp;Log off</a></li>
+                          <li  role="presentation"><a href="#" data-target="#theme-changer" data-toggle="modal" ><i class='fas fa-cog fa-1x' ></i></a></li>
+                    </ul>
+
+
+                {%  else %}
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="/register">Register</a> </li>
+                        <li><a href="/login"> <i class='fas fa-sign-in-alt'></i>&nbsp;Login</a></li>
+                       <li  role="presentation"><a href="#" data-target="#theme-changer" data-toggle="modal"><i class='fas fa-cog fa-1x'></i></a></li>
+                    </ul>
+                {% endif %}
+            </div>
+        </div>
+    </nav>
+
+    <div class="modal"  id="chat-bot" role="dialog">
+        <div class="modal-dialog " role="document">
+            <div class="modal-content">
+
+                      <iframe
+                    allow="microphone;"
+                    height="430px"
+                    width="600px"
+                    src="https://console.dialogflow.com/api-client/demo/embedded/c58d7781-bbb8-40fb-aa40-7b565a6d2869">
+                </iframe>
+
+            </div>
+        </div>
+    </div>
+
+      <div class="modal" role="dialog" id="theme-changer">
+        <div class="modal-dialog modal-sm" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                  <h5>Select theme</h5>  </div>
+                <div class="modal-body">
+
+                     <input class="theme-selector" type="radio" name="themecolor" value="navbar navbar-inverse navbar-fixed-top box"> &nbsp;Inverse</br>
+                    <input class="theme-selector" type="radio" name="themecolor" value="navbar navbar-invert navbar-fixed-top box"> &nbsp;Invert</br>
+                    <input class="theme-selector" type="radio" name="themecolor" value="navbar navbar-default navbar-fixed-top box" checked> &nbsp;Default</br>
+                    <button class="btn-primary" id="apply-theme" >Apply Theme</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<div class="container-fluid" style="margin-top:80px;">
+
+
+
+
+<div class="row" id="content-div">
+    {{ left_panel() }}
+      <div class="col-md-10">
+        <div class="row">
+            <div class="col-md-10 col-md-offset-1 " id="message-div">
+                {% if context['message'] is not none   %}
+                        <div class="alert alert-{{ context['message_status'] }} " role="alert"> Message: {{ context['message'] }}
+                                <a class="close"  onclick="$('.alert').fadeOut(5)">&times;</a>
+                        </div>
+
+                {% endif %}
+            </div>
+        </div>
+    {% block body %}
+
+    {% endblock %}
+      </div>
+</div>
+</div>
+
+
+                <footer>
+                    <div class="row">
+                        <div class="col-md-4 col-sm-6 footer-navigation">
+                            <h3><a href="#">iNeuron <span>MEGA </span> Challenge</a></h3>
+                            <p class="links"><a href="#">Home</a><strong> · </strong><a href="#">Projects </a><strong> . </strong><a href="#">Faq</a><strong> · </strong><a href="#">Contact</a></p>
+                            <p class="company-name">Machine Learning Application &copy; 2021 </p>
+                        </div>
+                        <div class="clearfix visible-sm-block"></div>
+                        <div id="contact-data" class="col-md-4 col-sm-6 footer-contacts">
+                           <div>
+                                <span class="fa fa-map-marker footer-contacts-icon"> </span>
+                                <p><span class="new-line-span">Mumbai </span> Maharashtra, India</p>
+                           </div>
+                            <div>
+                                <i class="fa fa-phone footer-contacts-icon"></i>
+                                <p class="footer-center-info email text-left"> +91 9769418629</p>
+                            </div>
+                            <div>
+                                <i class="fa fa-envelope footer-contacts-icon"></i>
+                                <p>yadav.tara.avnish@gmail.com </p>
+                            </div>
+
+                        </div>
+                        <div class="clearfix visible-sm-block"></div>
+                        <div class="col-md-4 col-sm-6 footer-about">
+                            <h4>About the projects</h4>
+                             <div>
+
+                                <p>   <i class="fab fa-microsoft fa-1x"> </i>Microsoft Azure</p>
+                           </div>
+                            <div>
+
+                                <p>  <i class="fab fa-amazon  fa-1x"> </i>Amazon Web Services</p>
+                            </div>
+                            <div>
+
+                                <p>  <i class="fab fa-google fa-1x"> </i>Google Cloud Platform</p>
+                            </div>
+                            <div class="social-links social-icons">
+                               <a href="#" data-target="#chat-bot" data-toggle="modal"> <i class='fas fa-comment'></i></a>
+                                <a href="#"><i class="fab fa-microsoft"></i></a>
+                                <a href="#"><i class="fab fa-amazon"></i></a>
+                                <a href="https://www.linkedin.com/in/avnish-yadav-3ab447188/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                                <a href="#"><i class="fab fa-google"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                </footer>
+
+
+
+
+    <script src="{{ url_for('static', filename='assets/js/jquery.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/bootstrap/js/bootstrap.min.js') }}"></script>
+
+</body>
+</html>
